@@ -1,3 +1,5 @@
+console.log("+++Polymorphism+++");
+
 /**
  * Generic class Animal
  * **/
@@ -63,3 +65,5 @@ console.log(a3);
 
 // Cat Sound
 a3.makeSound();
+
+console.log("++++++");
