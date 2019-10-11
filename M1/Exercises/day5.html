@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- EXERCISE 1 -->
   <meta charset="UTF-8">
@@ -10,9 +11,102 @@
   <title>JL Cutting The Edges</title>
   <!-- END -->
 </head>
+
 <body>
   <header class="topTitle">
-      <h1>JL Barber Shop</h1>
+    <h1>JL Barber Shop</h1>
   </header>
+  <!-- Ex 11 -->
+  <div class="navBar">
+    <a href="#info">Info</a>
+    <a href="#place">The Place</a>
+    <a href="#book">Book</a>
+  </div>
+
+  <!-- Ex 2 -->
+  <div id="info">
+    <h1>Cutting The Edges</h1>
+    <p class="shopInfo">
+      The shop is located in CPH.
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, repellat! Explicabo magni reprehenderit a
+      accusantium consequatur maxime, nemo iure. Dolore ea voluptatem, beatae placeat expedita quaerat id et
+      perspiciatis commodi.
+    </p>
+
+    <div class="promotion">
+      <h2>Promotions</h2>
+      <p> Wew have an seclusive promotion of <span class="green"> 20%</span></p>
+    </div>
+  </div>
+  <div id="place">
+    <h2>Address</h2>
+    <p>You can find us here:</p>
+    <a href="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18005.146148354084!2d12.56172155!3d55.66041334999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sdk!4v1570799838911!5m2!1sen!2sdk" target="_blank">
+      The Map
+    </a>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18005.146148354084!2d12.56172155!3d55.66041334999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sdk!4v1570799838911!5m2!1sen!2sdk" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" target="_blank">
+      </iframe>
+    </div>
+  </div>
+  <div id="contact">
+    <h2>Contact Us</h2>
+    <form action="#" method="post">
+      <div class="field">
+        <input type="email" id="email" name="email" placeholder="name@domain.tld" required />
+        <label for="email">E-Mail</label>
+      </div>
+      <input class="button" type="submit" value="Send" />
+    </form>
+  </div>
+
+  <div id="book">
+    <h2>Book your awesome cut</h2>
+    <form action="#" method="post">
+        <div class="field">
+          <input type="text" id="name" name="name" placeholder="Who are you?" autofocus />
+          <label for="name">Name</label>
+        </div>
+        <div class="field">
+          <input type="text" id="phone" name="phone" placeholder="123456" required />
+          <label for="phone">Phone number</label>
+        </div>
+        <div class="field">
+          <input type="text" id="date" name="date" placeholder="01/01/2019" required />
+          <label for="date">Date</label>
+        </div>
+        <input class="button" type="submit" value="Book" />
+      </form>
+  </div>
+  <footer>
+    <ul>
+      <li>
+        Address
+        <span>somewhere there or here</span>
+      </li>
+      <li>
+        Phone Number
+        <span>0213587461</span>
+      </li>
+      <li>
+        <a href="mailto:barber@sho.com">Email</a>
+      </li>
+    </ul>
+  </footer>
+  <script>
+    window.onload = function () {
+      console.log("Page loaded!");
+
+      /* EXERCISE 10:
+          Write on console the size (height and width) of the current browser window
+          Write on console the size (height and width) of the current page window
+      */
+    };
+
+  </script>
 </body>
+
 </html>
