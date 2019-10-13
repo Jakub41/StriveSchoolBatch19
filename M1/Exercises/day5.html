@@ -136,6 +136,9 @@
             <input class="bookFormField" type="email" placeholder="Email" required>
           </div>
           <div class="fieldPrepend">
+            <input class="bookFormField" type="text" placeholder="01/01/2019" required>
+          </div>
+          <div class="fieldPrepend">
             <input class="bookBtn" type="submit" value="BOOK">
           </div>
         </form>
@@ -185,20 +188,66 @@
           </div>
         </div>
         <div class="contactUs">
-           <div class="addressInfo">
-             <p>City:</p>
-             <span class="location">Copenhagen DK</span>
-             <p>Street:</p>
-             <span class="location">Some Street 56</span>
-             <p>Phone:</p>
-             <span class="location">98765432</span>
-           </div>
+          <span class="contactUs_under">City</span>
+          <div class="contactUs_options">
+            <span>Copenhagen</span>
+          </div>
+          <br>
+          <span class="contactUs_under">Street</span>
+          <div class="contactUs_options">
+            <span>Some street 48</span>
+          </div>
+          <br>
+          <span class="contactUs_under">Phone</span>
+          <div class="contactUs_options">
+            <span>094586793</span>
+          </div>
         </div>
+      </div>
+      <h2 class="formTitle">Send us an email</h2>
+      <div class="emailForm">
+        <form action="" method="post" class="emailFormSend">
+          <div class="field">
+            <input type="text" id="name" name="name" placeholder="Who are you?" autofocus required />
+            <label for="name">Name</label>
+          </div>
+          <div class="field">
+            <input type="text" id="email" name="email" placeholder="name@domain.tld" required />
+            <label for="email">E-Mail</label>
+          </div>
+          <div class="field">
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Your phone number" />
+            <label for="phoneNumber">Phone</label>
+          </div>
+          <div class="field">
+            <textarea id="msg" rows="4" name="msg" placeholder="Your message..." required></textarea>
+            <label for="msg">Message</label>
+          </div>
+          <input class="button" type="submit" value="Send" />
+        </form>
       </div>
     </section>
   </div>
   <footer id="footer">
-
+    <div id="footerContent">
+      <span class="contactUs_under">The Barber Shop</span>
+      <span class="contactUs_under">City</span>
+      <div class="contactUs_options">
+        <span>Copenhagen</span>
+      </div>
+      <span class="contactUs_under">Street</span>
+      <div class="contactUs_options">
+        <span>Some street 48</span>
+      </div>
+      <span class="contactUs_under">Phone</span>
+      <div class="contactUs_options">
+        <span>094586793</span>
+      </div>
+      <span class="contactUs_under">Contact</span>
+      <div class="contactUs_options">
+        <a href="emailto:somewhere@gmail.com">Email</a>
+      </div>
+    </div>
   </footer>
 
   <!-- Scripts-->

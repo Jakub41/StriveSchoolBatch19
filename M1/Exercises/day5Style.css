@@ -797,7 +797,7 @@ header {
 #info div {
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: 40px;
+  flex-basis: 16em;
 }
 
 #info .map {
@@ -816,19 +816,124 @@ header {
   position: absolute;
 }
 
-.contactUs .addressInfo {
-  width: 100%x;
-  margin-left: 150px;
+.contactUs {
+  padding: 10px;
 }
 
-.contactUs .addressInfo .location {
-  float: left;
-  margin: 2%;
+.contactUs_under {
+  padding-left: 10px;
+  font-size: 16px;
+  color: #999;
+  line-height: 2em;
 }
 
-.contactUs .addressInfo p {
-  float: left;
-  width: 100px;
-  padding: 0;
+.contactUs_options {
+  display: inline-block;
+  margin-left: 10px;
+}
 
+h2.formTitle {
+  text-align: center;
+  margin-top: 3%;
+  letter-spacing: 0.2em;
+  font-size: 2em;
+}
+
+.emailForm {
+  margin: 2% auto 0;
+  width: 70%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+*:focus {
+  outline: 0;
+}
+
+form.emailFormSend {
+  width: 100%;
+  margin: 0;
+}
+
+form.emailFormSend * {
+  font-size: 20px;
+  letter-spacing: 0.075em;
+  font-weight: 300;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+form.emailFormSend .field {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+form.emailFormSend .field label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #b13e8b, #372056);
+  width: 100%;
+  height: 64px;
+  transition: width 333ms ease-in-out;
+  text-align: center;
+  padding: 18px 0;
+}
+
+form.emailFormSend .field input[type="text"],
+form.emailFormSend .field textarea {
+  border: none;
+  width: 100%;
+  height: 64px;
+  margin: 0;
+  padding-left: 19.5%;
+  color: #313a3d;
+  border: 1px solid #b13e8b;
+}
+
+form.emailFormSend #msg {
+  height: 64px;
+  resize: none;
+  transition: all 333ms ease-in-out;
+  padding-top: 18px;
+}
+form.emailFormSend textarea:focus#msg,
+form.emailFormSend textarea:not(:placeholder-shown)#msg {
+  height: 166px;
+}
+form.emailFormSend input[type="text"]:focus + label,
+form.emailFormSend input[type="text"]:not(:placeholder-shown) + label,
+form.emailFormSend textarea:focus + label,
+form.emailFormSend textarea:not(:placeholder-shown) + label,
+form.emailFormSend .field:hover label {
+  width: 18%;
+}
+form.emailFormSend input[type="submit"] {
+  background: linear-gradient(90deg, #b13e8b, #812d65);
+  -webkit-appearance: none;
+  border: none;
+  position: relative;
+  padding: 13px 50px;
+  transition: all 0.3s ease-in-out;
+}
+form.emailFormSend input[type="submit"]:hover,
+form.emailFormSend input[type="submit"]:focus {
+  background: #372056;
+}
+
+/* Footer */
+
+footer {
+  border-top: 2px solid black;
+  margin-bottom: 20px;
+}
+
+#footerContent {
+  margin: 2% auto 0;
+  width: 70%;
+  max-width: 1000px;
+  justify-content: center;
 }
