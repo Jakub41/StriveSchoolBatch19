@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HTML 5 :: Semantics</title>
 </head>
+<!-- This HTML 5 page is about to show the new semantics as an example -->
+
 <body>
+    <!-- Header Semantic Grouping Element -->
+    <header>
+        <!-- Nav for navigation bar with navigation links -->
+        <h1>
+            navigation bar NAV
+        </h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Link 1</a>
+                </li>
+                <li>
+                    <a href="#">Link 2</a>
+                </li>
+                <li>
+                    <a href="#">Link 3</a>
+                </li>
+                <li>
+                    <a href="#">Link 4</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <!-- Headings used for titles from 'h1' to 'h6' -->
     <h1>H1</h1>
     <h2>H2</h2>
@@ -15,5 +42,93 @@
     <h5>H5</h5>
     <h6>H6</h6>
 
+    <!-- Main group main content -->
+    <main>
+        <!-- Header on top of main content -->
+        <header>
+            <h1>Header can be used on top of a specific content anywhere</h1>
+        </header>
+        <!-- Article, aside, nav, section Semantic Elements -->
+        <article>
+            <h1>I'm inside the ARTICLE</h1>
+            <section>
+                <h2>I'm inside the SECTION</h2>
+            </section>
+            <section>
+                <h3>I'm inside the SECTION</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus esse, ea deleniti rem iste non
+                    error aspernatur voluptate. Perspiciatis unde laudantium voluptas deleniti id iste ducimus quas
+                    eligendi repellendus voluptates?
+                </p>
+                <article>
+                    <h4>Article inside section</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla aliquid ad porro doloribus
+                        aspernatur ex similique facilis harum et voluptates est optio veniam dolorum modi mollitia eum
+                        voluptas, officiis doloremque?</p>
+                </article>
+            </section>
+            <!-- Blockquote -->
+            <blockquote>
+                <h2>blockquote me</h2>
+                <h3>Another one</h3>
+            </blockquote>
+        </article>
+        <!-- Figure Figcaption -->
+        <figure>
+            <figcaption>Architecture</figcaption>
+            <img src="https://placeimg.com/500/500/arch" alt="something" title="place">
+        </figure>
+        <!-- Aside -->
+        <aside>
+            <h3>ASIDE here</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, ea vitae. Ipsa pariatur minima
+                delectus. Labore accusantium magni, necessitatibus perferendis ex odio explicabo reprehenderit, beatae
+                porro saepe aperiam, blanditiis cupiditate?</p>
+        </aside>
+        <!-- Lists -->
+        <dt>
+            Definition
+        </dt>
+        <dd><a href="#">somewhere</a></dd>
+        <dd><a href="#">somewhere</a></dd>
+        <dd><a href="#">somewhere</a></dd>
+        <dd><a href="#">somewhere</a></dd>
+        <dd><a href="#">somewhere</a></dd>
+        <!-- Emphasizing -->
+        <article>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem accusamus unde quas repellat. Culpa cum
+                officia <b>quod tempora ratione</b> error, et aliquid libero <i>porro repellat</i> sapiente, dolore adipisci. Soluta,
+                in!</p>
+        </article>
+        <!-- Mark highline -->
+        <p>
+            some <mark>MARK</mark> inside here!
+        </p>
+        <!-- Date and Time -->
+        <time datetime="1914-12-20T08:00">October 15th, 2019 11:00</time>
+    </main>
+    <!-- Footer Semantic Grouping Element -->
+    <footer>
+        <div class="left">
+            <h4>Inside the FOOTER</h4>
+        </div>
+        <div class="right">
+            <h4>Right on the footer</h4>
+        </div>
+        <!-- Cite -->
+        <cite>
+            Citing myself
+        </cite>
+        <!-- Address -->
+        <address>
+            <h1>
+                <b>Address tag</b>
+            </h1>
+            <p>Street 56</p>
+            <p>Denmark</p>
+        </address>
+    </footer>
 </body>
+
 </html>
