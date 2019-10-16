@@ -216,12 +216,14 @@ function clearTasks() {
 }
 // Clear completed tasks from DOM
 function clearCompletedTasks() {
-    //Clear from DOM
-    while (completed.firstChild) {
-        completed.removeChild(completed.firstChild);
+    if (confirm("Destroy all ?")) {
+        //Clear from DOM
+        while (completed.firstChild) {
+            completed.removeChild(completed.firstChild);
+        }
+        //Clear from local storage
+        clearAllLocalStorage();
     }
-    //Clear from local storage
-    clearAllLocalStorage();
 }
 // Clear all from local storage
 function clearAllLocalStorage() {
@@ -278,7 +280,9 @@ function editCompletedTasks(e) {
     if (e.target.classList.contains("comp")) {
         if (confirm("Are you Sure ?")) {
             e.target.parentElement.parentElement.remove();
-            removeCompletedFromLocalStorage(e.target.parentElement.parentElement);
+            removeCompletedFromLocalStorage(
+                e.target.parentElement.parentElement
+            );
         }
     }
 }
