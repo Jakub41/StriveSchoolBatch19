@@ -1,19 +1,8 @@
 /**
- * TODO add a task
- * TODO delete a task
- * TODO clear a task
- * TODO filter a task
- * TODO show the tasks added
- * TODO show the tasks completed
- * todo alert confirm message
- *
- **/
-
-/**
  * Defining vars
  */
 
-var sectionTask = document.querySelector("#section-add-task");
+var sectionTask = document.querySelector("#section-add-task form");
 var taskInput = document.querySelector("#task");
 var deleteTasks = document.querySelector(".clear-tasks");
 var taskList = document.querySelector(".task-list");
@@ -22,24 +11,24 @@ var completed = document.querySelector(".completed-tasks");
 
 // Function to load all the events
 function loadAllEvents() {
-   // Add task
-   sectionTask.addEventListener('submit', addTask);
-   // Save task
-   window.addEventListener('load', getCompletedTasks);
-   // Save and load to DOM
-   window.addEventListener('load', getTasks);
-   // Remove
-   taskList.addEventListener('click', removeTask);
-   // Clear all
-   deleteTasks.addEventListener('click', clearTasks);
-   // Clear completed
-   deleteTasks.addEventListener('click', clearCompletedTasks);
-   // Filter tasks
-   filter.addEventListener('keyup', filterTasks);
-   // Add to completed list
-   taskList.addEventListener('click', addToCompletedTasks);
-   // Remove completed
-   completed.addEventListener('click', editCompletedTasks);
+    // Add task
+    sectionTask.addEventListener('submit', addTask);
+    // Save task
+    window.addEventListener('load', getCompletedTasks);
+    // Save and load to DOM
+    window.addEventListener('load', getTasks);
+    // Remove
+    taskList.addEventListener('click', removeTask);
+    // Clear all
+    deleteTasks.addEventListener('click', clearTasks);
+    // Clear completed
+    deleteTasks.addEventListener('click', clearCompletedTasks);
+    // Filter tasks
+    filter.addEventListener('keyup', filterTasks);
+    // Add to completed list
+    taskList.addEventListener('click', addToCompletedTasks);
+    // Remove completed
+    completed.addEventListener('click', editCompletedTasks);
 }
 
 // Add Task Function
@@ -288,3 +277,6 @@ function editCompletedTasks(e) {
         }
     }
 }
+
+// Load all
+loadAllEvents();
