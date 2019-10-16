@@ -1,12 +1,19 @@
 /**
  * Defining vars
+ * Defining globals to let them accessible in the functions
  */
 
+// Selecting where the form is
 var sectionTask = document.querySelector("#section-add-task form");
+// Selecting where we insert the input
 var taskInput = document.querySelector("#task");
+// Selecting where we can clear
 var deleteTasks = document.querySelector(".clear-tasks");
+// Selecting where we have the list of tasks
 var taskList = document.querySelector(".task-list");
+// Selecting the filter of tasking
 var filter = document.querySelector("#filter");
+// Selecting completing tasks
 var completed = document.querySelector(".completed-tasks");
 
 // Function to load all the events
