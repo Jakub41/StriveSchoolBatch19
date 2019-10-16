@@ -242,7 +242,7 @@ function addToCompletedTasks(e) {
         // Remove from dom
         target.remove();
         // Remove from local storage
-        removeFromLS(target);
+        removeFromLocalStorage(target);
         // Append li to completed item
         completed.appendChild(target);
         // Check animation
