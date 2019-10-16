@@ -31,11 +31,9 @@
 
 <body>
     <!-- Heading -->
-    <header>
-        <h1 class="todo-title">Do I have to do it?</h1>
-    </header>
+    <h1 class="todo-title">Do I have to do it?</h1>
     <!-- Main content -->
-    <main>
+     <main class="container">
         <!-- Section for input fields to add a task-->
         <div id="section-add-task" class="add-task">
             <form>
@@ -56,7 +54,7 @@
                     <h5>Tasks to be completed</h5>
                     <!-- Filter input to search for a specific task -->
                     <div class="input-field">
-                        <input type="text" class="filter-task input center" id="filter" placeholder="filter task"
+                        <input type="text" class="filter-task input-task center" id="filter" placeholder="filter task"
                             onfocus="this.placeholder = '' " onblur="this.placeholder = 'filter task'">
                     </div>
                     <!-- List of the task filtered -->
@@ -65,9 +63,6 @@
                 <div class="center">
                     <!-- Completed tasks -->
                     <h5>Completed Tasks</h5>
-                    <div class="input-field">
-                        <input type="text" class="filter-task input center" id="completed-task">
-                    </div>
                     <!-- List of completed tasks -->
                     <ul class="completed-tasks"></ul>
                 </div>

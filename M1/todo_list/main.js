@@ -230,6 +230,7 @@ function clearAllLocalStorage() {
 // Filter tasks
 function filterTasks(e) {
     var value = e.target.value.toLowerCase();
+    // Filtering the tasks & showing nothing if not match
     document.querySelectorAll(".collection-item").forEach(function(i) {
         var text = i.firstChild.textContent;
         if (text.toLowerCase().indexOf(value) != -1) {
@@ -261,7 +262,7 @@ function addToCompletedTasks(e) {
         // Remove from DOM
         target.parentElement.remove();
         // Remove from local storage
-        removeFromLS(target.parentElement);
+        removeFromLocalStorage(target.parentElement);
         completed.appendChild(target.parentElement);
         // Check animation
         document.querySelector(".green-check").classList.add("check");
@@ -277,7 +278,7 @@ function editCompletedTasks(e) {
     if (e.target.classList.contains("comp")) {
         if (confirm("Are you Sure ?")) {
             e.target.parentElement.parentElement.remove();
-            removeComFromLS(e.target.parentElement.parentElement);
+            removeCompletedFromLocalStorage(e.target.parentElement.parentElement);
         }
     }
 }
