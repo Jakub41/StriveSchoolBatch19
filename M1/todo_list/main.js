@@ -16,27 +16,25 @@ var filter = document.querySelector("#filter");
 // Selecting completing tasks
 var completed = document.querySelector(".completed-tasks");
 
-// Function to load all the events
-function loadAllEvents() {
-    // Add task
-    sectionTask.addEventListener("submit", addTask);
-    // Save task
-    window.addEventListener("load", getCompletedTasks);
-    // Save and load to DOM
-    window.addEventListener("load", getTasks);
-    // Remove
-    taskList.addEventListener("click", removeTask);
-    // Clear all
-    deleteTasks.addEventListener("click", clearTasks);
-    // Clear completed
-    deleteTasks.addEventListener("click", clearCompletedTasks);
-    // Filter tasks
-    filter.addEventListener("keyup", filterTasks);
-    // Add to completed list
-    taskList.addEventListener("click", addToCompletedTasks);
-    // Remove completed
-    completed.addEventListener("click", editCompletedTasks);
-}
+// Load all the events
+// Add task
+sectionTask.addEventListener("submit", addTask);
+// Save task
+window.addEventListener("load", getCompletedTasks);
+// Save and load to DOM
+window.addEventListener("load", getTasks);
+// Remove
+taskList.addEventListener("click", removeTask);
+// Clear all
+deleteTasks.addEventListener("click", clearTasks);
+// Clear completed
+deleteTasks.addEventListener("click", clearCompletedTasks);
+// Filter tasks
+filter.addEventListener("keyup", filterTasks);
+// Add to completed list
+taskList.addEventListener("click", addToCompletedTasks);
+// Remove completed
+completed.addEventListener("click", editCompletedTasks);
 
 // Add Task Function
 function addTask(e) {
@@ -283,6 +281,3 @@ function editCompletedTasks(e) {
         }
     }
 }
-
-// Load all
-loadAllEvents();
