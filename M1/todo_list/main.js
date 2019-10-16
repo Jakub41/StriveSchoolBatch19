@@ -123,13 +123,13 @@ function getCompletedTasks() {
     }
     completedTasks.forEach(function (task) {
         // Create li
-        const item = document.createElement('li');
+        var item = document.createElement('li');
         // Class to li
         item.className = "collection-item";
         // Value to li
         item.appendChild(document.createTextNode(task));
         // Link
-        const link = document.createElement('a');
+        var link = document.createElement('a');
         // Class to link
         link.className = "delete-item secondary-content";
         // Append to link
@@ -137,4 +137,54 @@ function getCompletedTasks() {
         // Append li to ul
         completed.appendChild(item);
     });
+}
+
+// Remove task
+function removeTask(e) {
+    var li = e.target.parentElement.parentElement;
+    var a = e.target.parentElement;
+    if (a.classList.contains('delete-item')) {
+        if (confirm('Are You Sure ?')) {
+            li.remove();
+            removeFromLocalStorage(li);
+        }
+    }
+}
+// Remove task from local storage
+function removeFromLocalStorage(taskItem) {
+    var tasks;
+    // If empty local storage then empty []
+    // Otherwise tasks
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    // Looping task index and remove
+    tasks.forEach(function (task, index) {
+        if (taskItem.textContent === task) {
+            tasks.splice(index, 1);
+        }
+    });
+    // Set the local storage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+// Remove completed task from local storage
+function removeCompletedFromLocalStorage(taskItem) {
+    var completedTasks;
+    // Completed tasks from LS [] then empty []
+    // Otherwise completed tasks
+    if (localStorage.getItem('completedTasks') === null) {
+        completedTasks = [];
+    } else {
+        completedTasks = JSON.parse(localStorage.getItem('completedTasks'));
+    }
+    // Looping completed tasks remove
+    completedTasks.forEach(function (task, index) {
+        if (taskItem.textContent === task) {
+            completedTasks.splice(index, 1);
+        }
+    });
+    // Set local storage
+    localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
 }
