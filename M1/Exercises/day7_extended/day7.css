@@ -1,0 +1,23 @@
+.hover {
+    font-size: 50px;
+    font-family: fantasy;
+}
+
+.letterSpacing {
+    letter-spacing: 2em;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+ul {
+}

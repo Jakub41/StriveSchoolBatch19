@@ -1,0 +1,225 @@
+<html>
+
+<head>
+    <script>
+        /* EXERCISE 1
+           Write a function to change the Title of the page in something else
+           */
+
+        function changeTitle(newTitle) {
+            document.title = newTitle;
+        }
+
+        /* EXERCISE 2
+       Write a function to change the class of the title of the page in "myHeading"
+       */
+
+        function addClassToTitle() {
+            //1) get a reference for the Title DOM ELEMENT (h1)
+            var h1 = document.querySelector("h1");
+
+            //2) find a way to add a class to the DOM element
+            h1.classList.add("myHeading")
+        }
+
+        //         window.onload = function() {
+        //         var h1 = document.querySelector("h1");
+        //         // this handler will be executed only once when the cursor moves over the unordered list
+        //         h1.addEventListener(
+        //             "mouseenter",
+        //             function(event) {
+        //                 // highlight the mouseenter target
+        //                 event.target.style.color = "purple";
+        //                 event.target.innerHTML = "Do I change?";
+        //                 event.target.classList.add("hover");
+
+        //                 // reset the color after a short delay
+        //                 setTimeout(function() {
+        //                     event.target.style.color = "red";
+        //                 }, 500);
+        //             },
+        //             false
+        //         );
+
+        //         h1.addEventListener(
+        //             "mouseout",
+        //             function(event) {
+        //                 // highlight the mouseenter target
+        //                 event.target.style.color = "black";
+        //                 event.target.innerHTML = "Hello";
+        //                 event.target.classList.add("hover");
+
+        //                 // reset the color after a short delay
+        //                 setTimeout(function() {
+        //                     event.target.style.color = " darkgreen";
+        //                 }, 500);
+        //             },
+        //             false
+        //         );
+        // }
+
+
+        /* EXERCISE 3
+        Write a function to change the text of only the p which are child of a div
+        */
+
+        function changePcontent() {
+            //1) find all the P that are child of a div ==> div p
+            var ps = document.querySelectorAll("div p")
+            //2) update the inner text of all of them
+            for (var i = 0; i < ps.length; i++) {
+                ps[i].innerText = "whatever";
+            }
+        }
+
+        function changePS() {
+            var pChildOfDiv = document.querySelectorAll("div p")
+            for (var i = 0; i < pChildOfDiv.length; i++) {
+                pChildOfDiv[i].innerHTML = "I am a < p > inside of a < div > and i have been changed with a JS loop"
+            }
+        }
+
+
+        /* EXERCISE 4
+        Write a function to change the destination of every link to https://www.google.com
+        */
+
+        function changeUrls() {
+            //1) get all the anchor tags
+            var anchors = document.querySelectorAll("a")
+            //2) update the href of all of them
+            for (var i = 0; i < anchors.length; i++)
+                anchors[i].href = "https://www.google.com"
+        }
+
+        /* EXERCISE 5
+       Write a function to add a new item ONLY to the second list
+       */
+
+        function addToTheSecond(content) {
+            //1) get a reference to the list
+            var list = document.querySelector("#secondList") //# is cause secondList is the ID
+            //2) i have to create the element
+            var newLi = document.createElement("li")
+            newLi.innerText = content
+            //3) i have to add the element as a child of the list
+            list.appendChild(newLi)
+        }
+
+        function addLi() {
+            var ul = document.getElementById("secondList"); //old school approach
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode("4th"));
+            ul.appendChild(li);
+        }
+
+
+        /* EXERCISE 6
+     Write a function to add a second paragraph to the div
+      */
+
+        function addParagraph(content) {
+            //1) get reference to the div
+            var div = document.querySelector("div")
+            //2) create a paragraph
+            var p = document.createElement("p")
+            p.innerText = content
+            //3) add the paragraph
+            div.appendChild(p)
+        }
+
+        function newP(p) {
+            var para = document.querySelector(div);
+            para.innerHTML += "<p>I am new here class</p>";
+        }
+
+
+        /* EXERCISE 7
+       Write a function to make the first UL disappear
+        */
+
+        function firstUlDisappear() {
+            document.querySelector("ul").style.display = "none"
+        }
+
+        /* EXERCISE 8
+        Write a function to make the background of every UL green
+        */
+
+        function paintItGreen() {
+            //1) find all the uls
+            var uls = document.querySelectorAll("ul")
+            //2) set the bg color for all of them
+            for (var i = 0; i < uls.length; i++)
+                uls[i].style.backgroundColor = "green"
+        }
+
+        /* EXERCISE 9
+        Make the heading of the page changing color every time the user clicks on it
+        */
+
+        function makeItClickable() {
+            //1) we need a ref to the title
+            var h1 = document.querySelector("h1")
+            //2) we need to add an event handler
+            h1.onclick = function (event) {
+                var currentElement = event.currentTarget;
+                currentElement.style.color = "#xxxxxx".replace(/x/g, y => (Math.random() * 16 | 0).toString(16))
+            }
+        }
+
+        /* EXERCISE 10
+      Create a new welcome alert message when the page successfully loads
+        */
+
+        window.onload = function () {
+            alert("Hey hope this pop up is not annoying!!!")
+        }
+
+        /* EXERCISE 11
+        Use HTML5 tags to divide sections, headers etc
+        */
+
+    </script>
+    ​
+    <style>
+        .myHeading {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>This is the title of the page</h1>
+        <h2>This is the subtitle of the page</h2>
+    </header>
+
+    <main>
+        <hr>
+        ​
+        <ul id="firstList">
+            <li>1st</li>
+            <li>2nd</li>
+            <li>3rd</li>
+        </ul>
+        ​
+        <ul id="secondList">
+            <li>1st</li>
+            <li>2nd</li>
+            <li>3rd</li>
+        </ul>
+        ​
+        <a href="strive.school">This link goes to Strive School</a>
+        ​
+        <div>
+            <p>This text is just for the exercise</p>
+        </div>
+    </main>
+    ​
+    <footer>
+        <p>And this text is just for the exercise too!</p>
+    </footer>
+</body>
+
+</html>
