@@ -1,0 +1,192 @@
+<html>
+
+<head>
+    <script>
+        /* EXERCISE 1
+           Write a function to change the Title of the page in something else
+           */
+        function changeTitle(newTitle) {
+            document.title = newTitle;
+        }
+
+
+        /* EXERCISE 2
+       Write a function to change the class of the title of the page in "myHeading"
+       */
+        function changeTitleClass() {
+            var titles = document.getElementsByTagName('h1');
+            for (var i = 0; i < titles.length; i++)
+                titles[i].className = 'myHeading';
+
+        }
+
+        function changeTitle(title) {
+
+            var titles = document.getElementsByTagName('h1');
+            for (var i = 0; i < titles.length; i++)
+                titles[i].innerHTML = title;
+
+        }
+
+        /* EXERCISE 3
+        Write a function to change the text of only the p which are child of a div
+        */
+
+        function changeTextOfPInDiv(text) {
+            var pOfDiv = document.getElementsByTagName('Div');
+
+            for (var i = 0; i < pOfDiv.length; i++) {
+                var pTags = pOfDiv[i].getElementsByTagName('p');
+                for (var j = 0; j < pTags.length; j++) {
+                    pTags[j].innerHTML = text;
+                }
+            }
+
+        }
+
+
+        /* EXERCISE 4
+        Write a function to change the destination of every link to https://www.google.com
+        */
+        function changeDestination(url) {
+            var anchors = document.getElementsByTagName('a');
+            for (var i = 0; i < anchors.length; i++) {
+                anchors[i].setAttribute('href', url);
+            }
+        }
+
+        /* EXERCISE 5
+       Write a function to add a new item ONLY to the second list
+       */
+
+        function addTo2List(item) {
+            var secondList = document.getElementById('secondList');
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode(item); // Create a text node
+            node.appendChild(textnode);
+            secondList.appendChild(node);
+        }
+
+        /* EXERCISE 6
+     Write a function to add a second paragraph to the div
+      */
+        function addSecondPara(item) {
+            var divs = document.getElementsByTagName('div');
+            var node = document.createElement("p");
+            var textnode = document.createTextNode(item); // Create a text node
+            node.appendChild(textnode);
+            divs[0].appendChild(node);
+        }
+
+        /* EXERCISE 7
+       Write a function to make the first UL disappear
+        */
+
+        function disappearFirstUl() {
+            var uls = document.getElementsByTagName('ul');
+            uls[0].style.display = 'none';
+        }
+
+        /* EXERCISE 8
+        Write a function to make the background of every UL green
+        */
+
+        function backgroundGreen() {
+            var uls = document.getElementsByTagName('ul');
+            for (var i = 0; i < uls.length; i++)
+                uls[i].style.background = 'green';
+
+        }
+
+        /* EXERCISE 9
+        Make the heading of the page changing color every time the user clicks on it
+        */
+        function changeHeadingColor(e) {
+            var colors = ['red', 'blue', 'black', 'green', 'pink']
+            var colorIndex = Math.round(Math.random() * 4);
+            e.style.color = colors[colorIndex];
+
+        }
+
+
+
+
+        /* EXERCISE 10
+      Create a new welcome alert message when the page successfully loads
+        */
+        window.onload = function welcome(params) {
+            alert(params);
+        }
+
+        /* EXERCISE 11
+        Use HTML5 tags to divide sections, headers etc
+        */
+
+        //Wrote some tags bellows
+
+
+        function load_function(params) {
+            changeTitle("exercise 1.");
+
+            changeTitleClass();
+
+            changeTextOfPInDiv('exercise 3');
+
+            changeDestination('https://www.google.com');
+
+            addTo2List('exercise 5');
+
+            addSecondPara('exercise 6');
+
+            disappearFirstUl();
+
+            backgroundGreen();
+
+            welcome('welcome !');
+
+
+
+        }
+    </script>
+
+    <style>
+        .myHeading {
+            color: red;
+        }
+    </style>
+</head>
+
+<body onload="load_function()">
+    <header>
+        <h1 onclick="changeHeadingColor(this)">This is the title of the page</h1>
+        <h2>This is the subtitle of the page</h2>
+
+    </header>
+
+    <hr>
+
+    <section>
+        <ul id="firstList">
+            <li>1st</li>
+            <li>2nd</li>
+            <li>3rd</li>
+        </ul>
+
+        <ul id="secondList">
+            <li>1st</li>
+            <li>2nd</li>
+            <li>3rd</li>
+        </ul>
+    </section>
+
+    <footer>
+        <a href="strive.school">This link goes to Strive School</a>
+
+        <div>
+            <p>This text is just for the exercise</p>
+        </div>
+        <p>And this text is just for the exercise too!</p>
+    </footer>
+</body>
+
+</html>
