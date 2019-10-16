@@ -56,7 +56,7 @@ function addTask(e) {
         // Add class to link
         link.className = "delete-item secondary-content";
         // Add a mark
-        link.innerHTML = '<div class="comp"></div>';
+        link.innerHTML = '<div class="comp">X</div>';
         // Append link to li
         item.appendChild(link);
         // Append ul to li
@@ -122,7 +122,7 @@ function getTasks() {
         // Class to link
         link.className = "delete-item secondary-content";
         // Add mark
-        link.innerHTML = '<div class="comp"></div>';
+        link.innerHTML = '<div class="comp">X</div>';
         // Append link to li
         item.appendChild(link);
         // Append li to ul
@@ -150,7 +150,7 @@ function getCompletedTasks() {
         // Class to link
         link.className = "delete-item secondary-content";
         // Add mark
-        link.innerHTML = '<div class="comp"></div>';
+        link.innerHTML = '<div class="comp">X</div>';
         // Append to link
         item.appendChild(link);
         // Append li to ul
@@ -258,7 +258,7 @@ function addToCompletedTasks(e) {
             document.querySelector(".green-check").classList.remove("check");
         }, 1000);
 
-        saveComTasks(target.textContent);
+        saveCompletedTasks(target.textContent);
     } else if (target.classList.contains("delete-item")) {
         // Remove from DOM
         target.parentElement.remove();
