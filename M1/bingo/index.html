@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Let's Bingo</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <!--
@@ -18,9 +19,12 @@
     TODO bingo button clear board
 
     Example layout:
-    [ 1 2 3]
-    [ 4 5 6]
-    [ 7 8 9]
+    dimension 5X5 standard board
+    [ 1 2 3 n n]
+    [ 4 5 6 n n]
+    [ 7 8 9 n n]
+    [ n n n n n]
+    [ n n n n n]
     [buttons]
 
     CSS
@@ -38,8 +42,107 @@
 <body>
     <!-- Bingo main container -->
     <div id="bingo">
-
+        <!-- Heading -->
+        <header class="bingo-title">
+            BINGO
+        </header>
+        <!-- Bingo board layout -->
+        <section class="bingo-board">
+            <!-- Rows nX5 && Columns nX5 -->
+            <div class="row">
+                <div class="column"">
+                    1
+                </div>
+                <div class="column">
+                    2
+                </div>
+                <div class="column">
+                    3
+                </div>
+                <div class="column">
+                    4
+                </div>
+                <div class="column">
+                    5
+                </div>
+            </div>
+            <div class="row">
+                <div class="column"">
+                    1
+                </div>
+                <div class="column">
+                    2
+                </div>
+                <div class="column">
+                    3
+                </div>
+                <div class="column">
+                    4
+                </div>
+                <div class="column">
+                    5
+                </div>
+            </div>
+            <div class="row">
+                <div class="column"">
+                    1
+                </div>
+                <div class="column">
+                    2
+                </div>
+                <div class="column">
+                    3
+                </div>
+                <div class="column">
+                    4
+                </div>
+                <div class="column">
+                    5
+                </div>
+            </div>
+            <div class="row">
+                <div class="column"">
+                    1
+                </div>
+                <div class="column">
+                    2
+                </div>
+                <div class="column">
+                    3
+                </div>
+                <div class="column">
+                    4
+                </div>
+                <div class="column">
+                    5
+                </div>
+            </div>
+            <div class="row">
+                <div class="column"">
+                    1
+                </div>
+                <div class="column">
+                    2
+                </div>
+                <div class="column">
+                    3
+                </div>
+                <div class="column">
+                    4
+                </div>
+                <div class="column">
+                    5
+                </div>
+            </div>
+        </section>
+        <section class="buttons">
+            <button>New Board</button>
+            <button>Extra</button>
+            <button>Clear</button>
+        </section>
     </div>
+    <!-- Scripts -->
+    <script src="main.js"></script>
 </body>
 
 </html>
