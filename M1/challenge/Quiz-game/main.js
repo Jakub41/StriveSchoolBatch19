@@ -117,8 +117,8 @@ var timerId;
 
 function timer(index) {
     clearTimeout(timerId);
-    var timeLeft = 5;
-    timerId = setInterval(countdown, 1000000000);
+    var timeLeft = 20;
+    timerId = setInterval(countdown, 1000);
     function countdown() {
         if (timeLeft == 0) {
             clearTimeout(timerId);
