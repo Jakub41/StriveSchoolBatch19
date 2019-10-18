@@ -10,43 +10,38 @@
 </head>
 
 <body>
-    <header>
-        <h1>Quiz</h1>
-    </header>
+    <div class="name-section">
+        <label for="user_name">Name:</label>
+        <input type="text" class="user_name" name="user_name" /> <br /> <br />
+        <label for="user_name">Select Category</label></br>
+        <select class="quiz-categories" onchange="changeUrl()">
+        </select>
+        <br />
+        <br />
+        <label for="user_name">Select Difficulty</label></br>
+        <select class="difficulty-categories" onchange="changeUrl()">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select><br />
+        <br />
+        <label for="user_name">Select Type</label></br>
+        <select class="type-categories" onchange="changeUrl()">
+            <option value="any">Any Type</option>
+            <option value="multiple">Multiple Choice</option>
+            <option value="boolean">True / False</option>
+        </select><br />
+        <br />
+        <input type="button" value="Start Quiz" onclick="startQuiz()" />
+    </div>
+    <div class="quiz-section">
+        <div class="user_content"></div>
+        <div class="quiz_section"></div>
+    </div>
+    <div class="result-section">
 
-    <body>
-        <div class="name-section">
-            <label for="user_name">Name:</label>
-            <input type="text" class="user_name" name="user_name" /> <br /> <br />
-            <label for="user_name">Select Category</label></br>
-            <select class="quiz-categories" onchange="changeUrl()">
-            </select>
-            <br />
-            <br />
-            <label for="user_name">Select Difficulty</label></br>
-            <select class="difficulty-categories" onchange="changeUrl()">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select><br />
-            <br />
-            <label for="user_name">Select Type</label></br>
-            <select class="type-categories" onchange="changeUrl()">
-                <option value="any">Any Type</option>
-                <option value="multiple">Multiple Choice</option>
-                <option value="boolean">True / False</option>
-            </select><br />
-            <br />
-            <input type="button" value="Start Quiz" onclick="startQuiz()" />
-        </div>
-        <div class="quiz-section">
-            <div class="user_content"></div>
-            <div class="quiz_section"></div>
-        </div>
-        <div class="result-section">
-
-        </div>
-    </body>
+    </div>
+    <script src="main.js"></script>
 </body>
 
 </html>
