@@ -14,7 +14,7 @@
 
     - Game Rules:
     -- 75 ball
-    -- 5 numbers win in row, column & diagonal Bingo!
+    -- 5 numbers win in row, column Bingo!
     -- Number when present on player board are highlighted
     -- Full board number highlighted extra prices!
     -- Center cell free space
@@ -25,7 +25,7 @@
     TODO layout of the extraction board
     TODO button generate the extraction
     TODO container for the number extracted
-    TODO butoon clear the board
+    TODO button clear the board
 
     - Board Layout Player
     TODO bingo card layout
@@ -74,22 +74,148 @@
  -->
 
 <body>
+    <!-- Heading -->
+    <header class="bingo-title">
+        BINGO
+    </header>
+    <!-- Number extracted and board -->
+    <section class="number-extracted">
+        <div class="extracted-number-display">
+            <span>0</span>
+        </div>
+        <div>
+            <input onclick="generateRandom();" id="btnGenerate" type="button" value="Generate" />
+            <input onclick="" id="btnClearExtractionBoard" type="button" value="Clear" />
+        </div>
+        <div id="extracted-numbers-board">
+            <table class="numbers-board">
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </section>
 
-    <div class="bigNumberDisplay">
-        <span>0</span>
-    </div>
-    <div>
-        <input onclick="generateRandom();" id="btnGenerate" type="button" value="Generate" />
-    </div>
-
-
-
-    <!-- Bingo main container -->
+    <!-- Bingo player main container -->
     <div id="bingo">
-        <!-- Heading -->
-        <header class="bingo-title">
-            BINGO
+        <header>
+            <h1 class="title">
+                Ready Player One!
+            </h1>
         </header>
+        <!-- Game buttons -->
+        <section class="buttons">
+            <button id="reload">New Board</button>
+            <button>Extra</button>
+            <button>Clear</button>
+        </section>
         <!-- Bingo board layout -->
         <section class="bingo-board">
             <!-- Rows nX5 && Columns nX5 -->
@@ -178,11 +304,6 @@
                     5
                 </div>
             </div>
-        </section>
-        <section class="buttons">
-            <button>New Board</button>
-            <button>Extra</button>
-            <button>Clear</button>
         </section>
     </div>
     <!-- Scripts -->

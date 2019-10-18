@@ -1,17 +1,23 @@
-function generateRandom() {
-    var selectedNumbers = [];
-    var min = 1;
-    var max = 89;
-    if (selectedNumbers.length > 88) {
-        alert("All numbers Exhausted");
+/**
+ *
+ * Player board
+ *
+ **/
+
+// Starting on load page
+window.onload = start;
+
+// Defining the length of my array of numbers in the extraction
+var extractedNumbers = new Array(76);
+
+// Function to start the game
+function start() {
+    if (document.querySelector) {
+        document.querySelector("reload").onclick = anotherCard;
+        newCard();
     } else {
-        nextRandomNumber(min, max);
+        alert("Sorry, you cannot play :( ");
     }
 }
 
-function nextRandomNumber(min, max) {
-    var random = Math.floor(Math.random() * (max - min + 1)) + min;
-    console.log(random);
-
-    random.selectedNumbers.push(random);
-}
+// Creating a new card
