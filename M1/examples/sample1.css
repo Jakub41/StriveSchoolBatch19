@@ -1,0 +1,36 @@
+/* General style */
+div {
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Extraction Board */
+.extracted-number span {
+    font-size: 6em;
+
+}
+
+#board table {
+    width: 1000px;
+	border-collapse: collapse;
+    margin: 2% auto;
+    font-size: 1.6em;
+}
+
+.borderNumbersCell {
+    width: 50px;
+    display: inline-block;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 50px;
+}
+
+
