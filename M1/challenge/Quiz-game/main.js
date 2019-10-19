@@ -4,10 +4,11 @@ getCategories();
 var globalData = [];
 var globAnswer = 0;
 var quizUrl = "";
+var globSingleQuestion = {};
 
 function startQuiz() {
-    let name = document.querySelector(".user_name").value;
-    display("name-section", "none");
+    let name = document.querySelector(".user-name").value;
+    display("game-section", "none");
     display("quiz-section", "block");
     document.querySelector(
         ".user_content"
@@ -75,7 +76,7 @@ function bindQuestions(index) {
         tempArr.push(question.correct_answer);
         shuffle(tempArr);
         answerHtml = tempArr.map((o, i) => {
-            return `<input type="radio" name="options" value="${o}">${o}<br>`;
+            return `<input type="radio" name="options" value="${o}" onclick="handleRadioClick(this)"><span class="span-data">${o}</span><br>`;
         });
     } else {
         answerHtml = [
@@ -87,22 +88,23 @@ function bindQuestions(index) {
         `<h3>${question.question}</h3>` +
         answerHtml.join("") +
         `<input type="button" value="next" onclick="bindQuestionsAnswers( ${index +
-            1} )" /><div id="some_div"></div>`;
+            1} )" />
+<input type="hidden" class="answer-input" value="${question.correct_answer}" />
+<input type="button" value="Restart" onclick="reset()" />
+<div id="some_div"></div>`;
     timer(index);
 }
 
 function bindQuestionsAnswers(index) {
     clear();
-    if (index < 10) {
-        var answerData = document.querySelector('input[name="options"]:checked')
-            .value;
-        var answer = globalData[index - 1].correct_answer;
-        if (answerData == answer) globAnswer++;
+    var answerData = document.querySelector('input[name="options"]:checked')
+        .value;
+    var answer = globalData[index - 1].correct_answer;
+    if (answerData == answer) globAnswer++;
 
-        bindQuestions(index);
-    } else {
-        showResult();
-    }
+    console.log(globAnswer);
+    if (index == 10) showResult();
+    else bindQuestions(index);
 }
 
 function reset() {
@@ -117,7 +119,7 @@ var timerId;
 
 function timer(index) {
     clearTimeout(timerId);
-    var timeLeft = 20;
+    var timeLeft = 50;
     timerId = setInterval(countdown, 1000);
     function countdown() {
         if (timeLeft == 0) {
@@ -142,4 +144,11 @@ function showResult() {
     ).innerHTML = `<h1>Your result out of 10 is ${globAnswer}</h1><br /><input type="button" onclick="reset()" value="Restart Quiz" />`;
     display("result-section", "block");
     display("quiz-section", "none");
+}
+
+function handleRadioClick(data) {
+    var answer = document.querySelector(".answer-input").value;
+    if (data.value != answer) {
+        data.nextElementSibling.style.color = "red";
+    }
 }

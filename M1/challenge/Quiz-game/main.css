@@ -1,1 +1,18 @@
+body {
+    background: #e2e1e0;
+}
+
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  section {
+    height: 100px;
+    width: 100px;
+  }
+
+  #g-interface {
+    flex-grow: 1;
+  }
 
