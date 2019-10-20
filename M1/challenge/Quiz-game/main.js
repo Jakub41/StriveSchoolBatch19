@@ -15,6 +15,11 @@ var quizUrl = "";
 var globSingleQuestion = {};
 var counter = 1;
 
+// Global selectors for the modal
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+
 /**
  *
  *  Starting the quiz onClick event when the button
@@ -26,7 +31,9 @@ function startQuiz() {
     let name = document.querySelector(".user-name").value;
     // We check if the input is not empty and the name length is > 3
     if (name.length != 0 && name.length > 3) {
-        var questionsCount = document.createElement("div").setAttribute("class", "q-counter");
+        var questionsCount = document
+            .createElement("div")
+            .setAttribute("class", "q-counter");
         // Game starts so we hide the first section of the player options to select
         display("game-section", "none");
         // We display the quiz section
@@ -35,11 +42,12 @@ function startQuiz() {
         // We are using `Template Literals` it is allowing us to pass a value to the HTML in embedded form
         // We added a counter for the questions to show on which question we are out of 10
         document.querySelector(".user_content").innerHTML =
-            `<h3>Welcome ${name}<h3>` + `<h4 class="q-counter">Question <span>${counter}</span> of 10 </h4>`;
+            `<h3>Welcome ${name}<h3>` +
+            `<h4 class="q-counter">Question <span>${counter}</span> of 10 </h4>`;
         // We are calling our function to get our Questions and Answers
         getQuestionsAnswers();
     } else {
-        console.log("No name");
+        openModal();
     }
 }
 
@@ -323,3 +331,19 @@ function handleRadioClick(data) {
         data.nextElementSibling.style.color = "red";
     }
 }
+
+// Modal for error
+function openModal() {
+    // When modal opens we display in a block
+    modal.style.display = "block";
+}
+// On click we hide
+span.onclick = function() {
+    modal.style.display = "none";
+};
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
