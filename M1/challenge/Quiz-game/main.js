@@ -13,7 +13,9 @@ var globalData = [];
 var globAnswer = 0;
 var quizUrl = "";
 var globSingleQuestion = {};
+var globalAttempts = 2;
 var counter = 1;
+var timeLeft = 50;
 
 // Global selectors for the modal
 var modal = document.getElementById("myModal");
@@ -222,7 +224,8 @@ function bindQuestions(index) {
                 question.correct_answer
             }" />
             <input type="button" value="Restart" onclick="reset()" />
-            <div id="some_div"></div>`;
+            <div id="some_div"></div>
+            <div id="current_status">Attempts remains: ${globalAttempts}/2</span></div>`;
     // Call to the timer function with an index param
     timer(index);
 }
@@ -233,24 +236,46 @@ function bindQuestions(index) {
  *
  */
 function bindQuestionsAnswers(index) {
-    // Just a reset call for the countdown
     clear();
-    // Getting the value of the answer
-    var answerData = document.querySelector('input[name="options"]:checked')
-        .value;
-    // We check the answer and decrement the index of -1 as we have 10 questions
-    // We check a question and we go next
-    var answer = globalData[index - 1].correct_answer;
-    // If we heave an answer we increment
-    if (answerData == answer) globAnswer++;
-    // Counting the questions
-    document.querySelector(
-        ".user_content"
-    ).innerHTML = `<h4 class="q-counter">Question <span>${++counter}</span> of 10</h4>`;
-    // We have 10 question
-    // when we have 10 questions completed we see the result otherwise we go to next questions
-    if (index == 10) showResult();
-    else bindQuestions(index);
+    if (document.querySelector('input[name="options"]:checked') == null) {
+        var answer = confirm("Please select right answer.");
+        if (answer) {
+            timer(index);
+        } else {
+            location.reload();
+        }
+    } else {
+        var answerData = document.querySelector('input[name="options"]:checked')
+            .value;
+
+        var answer = globalData[index - 1].correct_answer;
+        if (answerData == answer) {
+            globAnswer++;
+            globalAttempts = 2;
+            timeLeft = 50;
+            if (index == 10) {
+                showResult();
+            } else {
+                document.querySelector(
+                    ".user_content"
+                ).innerHTML = `<h4 class="q-counter">Question <span>${++counter}</span> of 10</h4>`;
+                bindQuestions(index);
+            }
+        } else {
+            if (globalAttempts == 1) {
+                globalAttempts = 2;
+                if (index == 10) {
+                    showResult();
+                } else {
+                    bindQuestions(index);
+                    timeLeft = 50;
+                }
+            } else {
+                globalAttempts--;
+                bindQuestions(index - 1);
+            }
+        }
+    }
 }
 
 // We just reset the game
@@ -272,22 +297,14 @@ var timerId;
  *
  */
 function timer(index) {
-    // We clear the countdown
     clearTimeout(timerId);
-    // Time left we want for the questions
-    var timeLeft = 50;
-    // We set an interval for the timeLeft
     timerId = setInterval(countdown, 1000);
-    // We countDown
     function countdown() {
-        // If time elapsed 0 game over go to next question
         if (timeLeft == 0) {
             clearTimeout(timerId);
-            // We check if we are on the last questions so we show the results directly
             if (index < 9) bindQuestions(index + 1);
             else showResult();
         } else {
-            // We show the remaining seconds
             var elem = document.getElementById("some_div");
             elem.innerHTML = timeLeft + " seconds remaining";
             timeLeft--;
@@ -319,16 +336,19 @@ function showResult() {
 /**
  *
  * We handle the radio answer for wrong answers
- * TODO fix the fact I can select many wrong answers and select the correct answer and go next
- * TODO solution make as attempts on the second one wrong go next without giving the possibility to choose the answer
  *
  */
 function handleRadioClick(data) {
-    // We get the answer value
-    var answer = document.querySelector(".answer-input").value;
-    // If not correct we mark in red
-    if (data.value != answer) {
-        data.nextElementSibling.style.color = "red";
+    var elemInput = document.querySelectorAll("#radio-group>input");
+    var elemSpan = document.querySelectorAll("#radio-group>span");
+    var index = 0,
+        length = elemInput.length;
+    for (index; index < length; index++) {
+        if (elemInput[index] == data) {
+            elemSpan[index].style.color = "red";
+        } else {
+            elemSpan[index].style.color = "black";
+        }
     }
 }
 
