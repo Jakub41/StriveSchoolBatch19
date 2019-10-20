@@ -5,14 +5,14 @@ body {
 .quiz-container {
     display: flex;
     flex-direction: column;
-  }
+}
 
-  section {
-    height: 100px;
-    width: 100px;
-  }
+section {
+    height: 500px;
+    width: 500px;
+}
 
-  #g-interface {
+#g-interface {
     flex-grow: 1;
-  }
+}
 
