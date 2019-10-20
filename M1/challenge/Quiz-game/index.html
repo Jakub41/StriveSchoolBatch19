@@ -21,7 +21,7 @@
                 </header>
                 <div class="player-select">
                     <!-- <label for="user_name">Name:</label> -->
-                    <input type="text" class="user-name" name="user-name" placeholder="Your Name" required />
+                    <input type="text" class="user-name" name="user-name" placeholder="Enter your name" required />
                     <!-- <label for="user_name">Select Category</label> -->
                     <select class="quiz-categories" onchange="changeUrl()">
                     </select>
@@ -38,7 +38,7 @@
                         <option value="multiple">Multiple Choice</option>
                         <option value="boolean">True / False</option>
                     </select>
-                    <button class="btn-start" onclick="startQuiz()">Start Quiz</button>
+                    <button type="submit" class="btn-start" onclick="startQuiz()">Start Quiz</button>
                 </div>
             </div>
             <div class="quiz-section">
@@ -51,10 +51,10 @@
         </section>
         <div id="myModal" class="modal">
             <div class="modal-content">
-                <h3>Error</h3>
+                <h3 style="text-align: center;">Error Message</h3>
                 <p>Please enter your name to start Quiz.</p>
                 <span class="close">
-                    <button class="btn">OK</button>
+                    <button class="btn-start">OK</button>
                 </span>
             </div>
         </div>

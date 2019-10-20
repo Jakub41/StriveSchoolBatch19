@@ -16,6 +16,7 @@ var globSingleQuestion = {};
 var globalAttempts = 2;
 var counter = 1;
 var timeLeft = 50;
+var showFlag = false;
 
 // Global selectors for the modal
 var modal = document.getElementById("myModal");
@@ -187,8 +188,13 @@ function bindQuestions(index) {
     let tempArr = [];
     // A container for the answers
     var answerHtml;
+
+    showFlag = false;
+
     // We need a condition as we can have multiple or/and true/false questions answers
     if (question.type == "multiple") {
+        // We shows the attempts as player can have 2/2 attempts on multiple answers questions
+        showFlag = true;
         // Multiple then I store in an array multiple answers
         // [...] Spread syntax array literals we use that to be expanded
         // in places where zero or elements are expected
@@ -200,13 +206,13 @@ function bindQuestions(index) {
         // As it is `multiple` we need to have it showed so we map the possible answers
         // Then we can show in the DOM
         answerHtml = tempArr.map(o => {
-            return `<input type="radio" name="options" value="${o}" onclick="handleRadioClick(this)"><span class="span-data">${o}</span><br>`;
+            return `<label class="container">${o} <input name="options" type="radio" value="${o}" onclick="handleRadioClick(this)"> <span class="checkmark"></span></label >`;
         });
     } else {
         // For True/false we just add 2 options no mapping is required
         answerHtml = [
-            `<input type="radio" name="options" value="True"> True<br>`,
-            `<input type="radio" name="options" value="False"> False<br>`
+            `<div id="radio-group-true"><input type="radio" name="options" value="True"><span class="span-data"> True</span></div>,
+            <div id="radio-group-false"><input type="radio" name="options" value="False"><span class="span-data"> False</span><br></div>`
         ];
     }
     // We get the quiz section
@@ -218,14 +224,17 @@ function bindQuestions(index) {
         // We add a button to go next when we answer and we increment the index + 1
         // We add a check for the correct answer to mark the wrong in red
         // We add a restart button so we can restart the game
-        `<input type="button" value="next" onclick="bindQuestionsAnswers( ${index +
+        // We shows the attempts count only for multiple answers questions
+        `<input class="next-button" type="button" value="Next" onclick="bindQuestionsAnswers( ${index +
             1} )" />
-            <input type="hidden" class="answer-input" value="${
+            <input class="reset-button" type="hidden" class="answer-input" value="${
                 question.correct_answer
             }" />
-            <input type="button" value="Restart" onclick="reset()" />
+            <input class="restart-button" type="button" value="Restart" onclick="reset()" />
             <div id="some_div"></div>
-            <div id="current_status">Attempts remains: ${globalAttempts}/2</span></div>`;
+            <div style="display: ${
+                showFlag == true ? "block" : "none"
+            }" id="current_status">Attempts remains: ${globalAttempts}/2</span></div>`;
     // Call to the timer function with an index param
     timer(index);
 }
@@ -262,17 +271,23 @@ function bindQuestionsAnswers(index) {
                 bindQuestions(index);
             }
         } else {
-            if (globalAttempts == 1) {
-                globalAttempts = 2;
-                if (index == 10) {
-                    showResult();
-                } else {
-                    bindQuestions(index);
-                    timeLeft = 50;
-                }
+            // The questions boolean have no attempts
+            if (showFlag == false) {
+                bindQuestions(index);
             } else {
-                globalAttempts--;
-                bindQuestions(index - 1);
+
+                if (globalAttempts == 0) {
+                    globalAttempts = 2;
+                    if (index == 10) {
+                        showResult();
+                    } else {
+                        bindQuestions(index);
+                        timeLeft = 50;
+                    }
+                } else {
+                    globalAttempts--;
+                    bindQuestions(index - 1);
+                }
             }
         }
     }
@@ -302,8 +317,10 @@ function timer(index) {
     function countdown() {
         if (timeLeft == 0) {
             clearTimeout(timerId);
-            if (index < 9) bindQuestions(index + 1);
-            else showResult();
+            if (index < 9) {
+                timeLeft = 50;
+                bindQuestions(index + 1);
+            } else showResult();
         } else {
             var elem = document.getElementById("some_div");
             elem.innerHTML = timeLeft + " seconds remaining";
@@ -327,7 +344,7 @@ function showResult() {
     // We show the results based on how many equations we answered
     document.querySelector(
         ".result-section"
-    ).innerHTML = `<h1>Your result out of 10 is ${globAnswer}</h1><br /><input type="button" onclick="reset()" value="Restart Quiz" />`;
+    ).innerHTML = `<h1>Your result out of 10 is ${globAnswer}</h1><br /><input class="btn-start" type="button" onclick="reset()" value="Restart Quiz" />`;
     // We display the result section and hide quiz section
     display("result-section", "block");
     display("quiz-section", "none");
@@ -346,6 +363,40 @@ function handleRadioClick(data) {
     for (index; index < length; index++) {
         if (elemInput[index] == data) {
             elemSpan[index].style.color = "red";
+        } else {
+            elemSpan[index].style.color = "black";
+        }
+    }
+}
+
+function handleTrueRadioClick(data) {
+    var elemInput = document.querySelectorAll("#radio-group-true>input");
+    var elemSpan = document.querySelectorAll("#radio-group-true>span");
+    var elemSpan_other = document.querySelectorAll("#radio-group-false>span");
+
+    var index = 0,
+        length = elemInput.length;
+    for (index; index < length; index++) {
+        if (elemInput[index] == data) {
+            elemSpan[index].style.color = "red";
+            elemSpan_other[index].style.color = "black";
+        } else {
+            elemSpan[index].style.color = "black";
+        }
+    }
+}
+
+function handleFalseRadioClick(data) {
+    var elemInput = document.querySelectorAll("#radio-group-false>input");
+    var elemSpan = document.querySelectorAll("#radio-group-false>span");
+    var elemSpan_other = document.querySelectorAll("#radio-group-true>span");
+
+    var index = 0,
+        length = elemInput.length;
+    for (index; index < length; index++) {
+        if (elemInput[index] == data) {
+            elemSpan[index].style.color = "red";
+            elemSpan_other[index].style.color = "black";
         } else {
             elemSpan[index].style.color = "black";
         }
