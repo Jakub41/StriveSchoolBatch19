@@ -16,3 +16,6 @@ section {
     flex-grow: 1;
 }
 
+.q-counter span {
+    color: red;
+}
