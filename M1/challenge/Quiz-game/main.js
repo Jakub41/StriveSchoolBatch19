@@ -20,9 +20,8 @@ var showFlag = false;
 var firstWrongAnswer = "";
 
 // Global selectors for the modal
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
+var modal = document.querySelector("#myModal");
+var span = document.querySelectorAll(".close")[0];
 
 /**
  *
@@ -215,7 +214,7 @@ function bindQuestions(index) {
     } else {
         // For True/false we just add 2 options no mapping is required
         answerHtml = [
-            `<div id="radio-group-true"><input type="radio" name="options" value="True"><span class="span-data"> True</span></div>,
+            `<div id="radio-group-true"><input type="radio" name="options" value="True"><span class="span-data"> True</span></div>
             <div id="radio-group-false"><input type="radio" name="options" value="False"><span class="span-data"> False</span><br></div>`
         ];
     }
