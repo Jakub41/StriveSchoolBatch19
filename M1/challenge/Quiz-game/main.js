@@ -17,6 +17,7 @@ var globalAttempts = 2;
 var counter = 1;
 var timeLeft = 50;
 var showFlag = false;
+var firstWrongAnswer = "";
 
 // Global selectors for the modal
 var modal = document.getElementById("myModal");
@@ -206,7 +207,10 @@ function bindQuestions(index) {
         // As it is `multiple` we need to have it showed so we map the possible answers
         // Then we can show in the DOM
         answerHtml = tempArr.map(o => {
-            return `<label class="container">${o} <input name="options" type="radio" value="${o}" onclick="handleRadioClick(this)"> <span class="checkmark"></span></label >`;
+            if (o == firstWrongAnswer) {
+                return `<div id="radio-group"><input type="radio" name="options" value="${o}" onclick="handleRadioClick(this)"><span class="span-data" style="color:red;">${o}</span><br></div>`;
+            }
+            return `<div id="radio-group"><input type="radio" name="options" value="${o}" onclick="handleRadioClick(this)"><span class="span-data">${o}</span><br></div>`;
         });
     } else {
         // For True/false we just add 2 options no mapping is required
@@ -271,12 +275,11 @@ function bindQuestionsAnswers(index) {
                 bindQuestions(index);
             }
         } else {
-            // The questions boolean have no attempts
             if (showFlag == false) {
                 bindQuestions(index);
+                timeLeft = 50;
             } else {
-
-                if (globalAttempts == 0) {
+                if (globalAttempts == 1) {
                     globalAttempts = 2;
                     if (index == 10) {
                         showResult();
@@ -285,6 +288,7 @@ function bindQuestionsAnswers(index) {
                         timeLeft = 50;
                     }
                 } else {
+                    firstWrongAnswer = answerData;
                     globalAttempts--;
                     bindQuestions(index - 1);
                 }
@@ -314,6 +318,7 @@ var timerId;
 function timer(index) {
     clearTimeout(timerId);
     timerId = setInterval(countdown, 1000);
+
     function countdown() {
         if (timeLeft == 0) {
             clearTimeout(timerId);
@@ -364,7 +369,8 @@ function handleRadioClick(data) {
         if (elemInput[index] == data) {
             elemSpan[index].style.color = "red";
         } else {
-            elemSpan[index].style.color = "black";
+            if (elemInput[index].value != firstWrongAnswer)
+                elemSpan[index].style.color = "black";
         }
     }
 }
