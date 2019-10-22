@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<!--
+    ToDo List Task
+
+    HTML
+    [DONE] make the layout
+    [DONE] make input fields
+    [DONE] make buttons
+    TODO make extra if time
+
+    CSS
+    TODO make basic style
+    TODO make more style if time
+
+    JS
+    [DONE] make add task
+    [DONE] make clear task
+    [DONE] make filter task
+    [DONE] make delete task
+    [DONE] make extra if time
+ -->
+
+<body>
+    <!-- Heading -->
+    <h1 class="todo-title">Do I have to do it?</h1>
+    <!-- Main content -->
+     <main class="container">
+        <!-- Section for input fields to add a task-->
+        <div id="section-add-task" class="add-task">
+            <form>
+                <div class="input-field">
+                    <input type="text" class="input-task" id="task" placeholder="add a task" autocomplete="off"
+                        onfocus="this.placeholder = '' " onblur="this.placeholder = 'new task..'" />
+                </div>
+                <!-- Button Add Task -->
+                <div class="add-task-btn left">
+                    <input type="submit" value="Add Task" class="btn">
+                </div>
+            </form>
+        </div>
+        <!-- Edit a task -->
+        <section class="edit-task">
+            <div class="card-task">
+                <div class="center">
+                    <h5>Tasks to be completed</h5>
+                    <!-- Filter input to search for a specific task -->
+                    <div class="input-field">
+                        <input type="text" class="filter-task input-task center" id="filter" placeholder="filter task"
+                            onfocus="this.placeholder = '' " onblur="this.placeholder = 'filter task'">
+                    </div>
+                    <!-- List of the task filtered -->
+                    <ul class="task-list"></ul>
+                </div>
+                <div class="center">
+                    <!-- Completed tasks -->
+                    <h5>Completed Tasks</h5>
+                    <!-- List of completed tasks -->
+                    <ul class="completed-tasks"></ul>
+                </div>
+            </div>
+            <!-- Clear rhe tasks -->
+            <div class="clear-task-btn center">
+                <input type="button" value="Clear Tasks" class="clear-tasks btn">
+            </div>
+        </section>
+        <div class="comp green-check">Completed</div>
+    </main>
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+
+</html>
