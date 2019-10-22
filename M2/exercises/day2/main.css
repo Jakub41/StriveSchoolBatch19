@@ -1,0 +1,230 @@
+/* Global styles */
+@import url("https://fonts.googleapis.com/css?family=Fascinate+Inline|Permanent+Marker|Staatliches&display=swap");
+body {
+    background-color: rgb(208, 232, 241);
+}
+
+h1 {
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Fascinate Inline", cursive;
+    letter-spacing: 0.2em;
+    margin-top: 3rem;
+}
+
+p {
+    font-family: "Permanent Marker", regular, Arial, sans-serif, Helvetica;
+}
+
+.mt {
+    margin-top: 1rem;
+}
+
+.row {
+    margin: 15px;
+}
+
+img {
+    width: 200px;
+}
+
+/* Hr Style */
+.hr-droid {
+    display: flex;
+    margin-top: 30px;
+}
+.hr-line {
+    width: 100%;
+    position: relative;
+    margin: 15px;
+    border-bottom: 16px dotted #a4c639;
+}
+.green {
+    border-color: #a4c639;
+}
+.purple {
+    border-color: #9860d1;
+}
+.far {
+    position: relative;
+    top: 3px;
+    color: #ff82db;
+    font-size: 4em;
+}
+
+.bg-light {
+    background-color: rgb(234, 252, 245);
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+/* Navbar */
+.navbar {
+    padding: 0rem;
+    margin-bottom: 2rem;
+}
+
+/* My self */
+.paragraph {
+    background: rgb(0, 128, 128);
+    width: 99%;
+    padding: 10px;
+}
+
+.paragraph p {
+    color: white;
+    font-size: 16px;
+    padding: 6px 20px 0 0;
+    line-height: 1.5em;
+}
+
+.icon {
+    stroke-width: 1;
+    float: left;
+    padding: 6px 20px 6px 0;
+    font-size: 3em;
+}
+
+/* Music gallery */
+.music-gallery {
+    padding: 10px;
+}
+
+.music-gallery .row div {
+    padding: 2px;
+}
+
+.music-gallery .album img {
+    width: 100%;
+    border-radius: 0;
+    position: relative;
+}
+
+.figure-caption {
+    font-size: 1.5em;
+}
+
+/* Music Gallery Hover Effect*/
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+
+.hovereffect .overlay {
+    position: absolute;
+    overflow: hidden;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+}
+
+.hovereffect:hover .overlay {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+.hovereffect img {
+    display: block;
+    position: relative;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+.hovereffect:hover img {
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+    filter: brightness(0.6);
+    -webkit-filter: brightness(0.6);
+}
+
+.hovereffect h2 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    font-family: "Staatliches", cursive;
+    font-size: 27px;
+    background-color: transparent;
+    color: #fff;
+    padding: 1em 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+}
+
+.hovereffect span,
+.hovereffect p {
+    color: #fff;
+    padding: 1em 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    font-family: "Staatliches", cursive;
+    font-size: 20px;
+}
+
+.hovereffect:hover span,
+.hovereffect:hover p,
+.hovereffect:hover h2 {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* Favorite Music */
+.f-music {
+    display: flex;
+}
+.f-music .f-img {
+    flex: 33.33%;
+    padding: 5px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+    .figure-caption {
+        font-size: 1em;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
