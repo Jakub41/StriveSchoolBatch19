@@ -210,6 +210,11 @@ img {
     padding: 5px;
 }
 
+/* Music Universe */
+.music-universe {
+    padding: 30px;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 }
