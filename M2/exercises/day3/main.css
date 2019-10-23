@@ -37,7 +37,7 @@
     max-width: 100%;
 }
 
-.embed-responsive .card-img-top {
+.embed-responsive .card-img {
     object-fit: cover;
 }
 
