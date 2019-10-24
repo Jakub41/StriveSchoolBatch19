@@ -23,6 +23,17 @@ p {
     font-family: "Permanent Marker", regular, Arial, sans-serif, Helvetica;
 }
 
+.paragraph-top {
+    background: rgb(0, 128, 128);
+    width: 99%;
+    padding: 10px;
+}
+
+.paragraph-bottom {
+    background: rgb(122, 60, 19);
+    width: 99%;
+    padding: 10px;
+}
 .mt {
     margin-top: 1rem;
 }
@@ -74,13 +85,8 @@ img {
 }
 
 /* My self */
-.paragraph {
-    background: rgb(0, 128, 128);
-    width: 99%;
-    padding: 10px;
-}
 
-.paragraph p {
+.paragraph-top p {
     color: white;
     font-size: 16px;
     padding: 6px 20px 0 0;
@@ -165,7 +171,7 @@ img {
     text-transform: uppercase;
     text-align: center;
     position: relative;
-    font-family: 'Staatliches', cursive;
+    font-family: "Staatliches", cursive;
     font-size: 27px;
     background-color: transparent;
     color: #fff;
@@ -213,6 +219,19 @@ img {
 /* Music Universe */
 .music-universe {
     padding: 30px;
+}
+
+/* Worst Music */
+
+.paragraph-bottom p {
+    color: white;
+    font-size: 16px;
+    padding: 6px 20px 0 0;
+    line-height: 1.5em;
+}
+
+.paragraph-bottom i {
+    color: red;
 }
 
 /* Small devices (landscape phones, 576px and up) */
