@@ -2,7 +2,7 @@ var APP = {
     members: [],
     // add member
     addMember: function(name) {
-        // add the name to user list
+        // add the name to player list
         this.members.push(name);
         // show the name in user section
         $("#memberList").append(
