@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quizzes</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <main class="quiz-container">
+        <h1 class="q-title">
+            Let's do some quizzes
+        </h1>
+        <section id="g-interface">
+            <div class="game-section">
+                <header id="welcome">
+                    <h3 class="player-title">Ready Player One</h3>
+                </header>
+                <div class="player-select">
+                    <!-- <label for="user_name">Name:</label> -->
+                    <input type="text" class="user-name" name="user-name" placeholder="Enter your name" required />
+                    <!-- <label for="user_name">Select Category</label> -->
+                    <select class="quiz-categories" onchange="changeUrl()">
+                    </select>
+                    <!-- <label for="user_name">Select Difficulty</label> -->
+                    <select class="difficulty-categories" onchange="changeUrl()">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+
+                    <!-- <label for="user_name">Select Type</label> -->
+                    <select class="type-categories" onchange="changeUrl()">
+                        <option value="any">Any Type</option>
+                        <option value="multiple">Multiple Choice</option>
+                        <option value="boolean">True / False</option>
+                    </select>
+                    <button type="submit" class="btn-start" onclick="startQuiz()">Start Quiz</button>
+                </div>
+            </div>
+            <div class="quiz-section">
+                <div class="user_content"></div>
+                <div class="quiz_section"></div>
+            </div>
+            <div class="result-section">
+
+            </div>
+        </section>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <h3 style="text-align: center;">Error Message</h3>
+                <p>Please enter your name to start Quiz.</p>
+                <span class="close">
+                    <button class="btn-start">OK</button>
+                </span>
+            </div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>
