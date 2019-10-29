@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Bingo</title>
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="offset-sm-3 col-sm-6">
+                <h1>Welcome to BINGO!!!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-sm-5 col-sm-2">
+                <h2 id="generatedNumber">0</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-sm-2 col-sm-6">
+                <table class="table table-bordered" id="generateNumbersTable">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="offset-sm-1 col-sm-1">
+                <button class="btn btn-success" id="generateNumberBtn">Generate</button>
+                <button class="btn btn-danger" id="resetGenerateNumberTable" style="margin-top: 25px;">Reset</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-sm-5 col-sm-5">
+                <h2>User boards</h2>
+            </div>
+        </div>
+        <div class="row" style="margin:15px;">
+            <div class="offset-sm-1 col-sm-3">
+                <button class="btn btn-success" id="addNewBoardBtn">Add new board</button>
+            </div>
+        </div>
+
+        <!--Board template-->
+        <div id="userTemplateContainer0" class="col-sm-4" style="display:none;">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h3 id="userBoardLabel0" style="text-align:center;">Board number 1</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7">
+                    <table id="userBoard0" class="table table-bordered" board-number="0">
+                        <thead>
+                            <tr>
+                                <th>B</th>
+                                <th>I</th>
+                                <th>N</th>
+                                <th>G</th>
+                                <th>O</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="col-sm-5">
+                    <button class="btn btn-primary" id="newBoardBtn0" board-number="0">New board</button>
+                </div>
+            </div>
+        </div>
+        <!--End of board template-->
+        <div class="row" id="userBoardContainer">
+
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- Custom Scripts -->
+    <script src="./main.js"></script>
+
+</body>
+
+
+</html>
