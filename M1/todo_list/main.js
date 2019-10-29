@@ -16,7 +16,11 @@ var filter = document.querySelector("#filter");
 // Selecting completing tasks
 var completed = document.querySelector(".completed-tasks");
 
-// Load all the events
+/**
+ *
+ * Load all the events
+ *
+ */
 // Add task
 sectionTask.addEventListener("submit", addTask);
 // Save task
@@ -36,10 +40,16 @@ taskList.addEventListener("click", addToCompletedTasks);
 // Remove completed
 completed.addEventListener("click", editCompletedTasks);
 
-// Add Task Function
+/**
+ *
+ * addTask function
+ * we are adding here our single task
+ *
+ */
 function addTask(e) {
     e.preventDefault();
     // If no value show message
+    // We eliminate white spaces trim()
     if (taskInput.value.trim() === "") {
         alert("Are you lazy! Add a task!");
     } else {
@@ -68,7 +78,15 @@ function addTask(e) {
     }
 }
 
-// Save the tasks to local storage
+/**
+ *
+ * Save the tasks to local storage
+ * When we save we push the task to the obj which is set on local-storage
+ * to persist the data.
+ *
+ * Link: https://mzl.la/2osPUy3
+ *
+ **/
 function saveTasks(task) {
     var tasks;
     // Empty task value from local storage then empty [] of tasks
