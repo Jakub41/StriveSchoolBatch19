@@ -86,6 +86,8 @@ function addTask(e) {
  *
  * Link: https://mzl.la/2osPUy3
  *
+ * @param  task
+ *
  **/
 function saveTasks(task) {
     var tasks;
@@ -102,7 +104,12 @@ function saveTasks(task) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Save completed tasks to local storage
+/**
+ *
+ * Save completed tasks to local storage
+ *
+ * @param  task
+ */
 function saveCompletedTasks(task) {
     var completedTasks;
     // If competed tasks empty then empty []
@@ -185,6 +192,7 @@ function removeTask(e) {
         }
     }
 }
+
 // Remove task from local storage
 function removeFromLocalStorage(taskItem) {
     var tasks;
