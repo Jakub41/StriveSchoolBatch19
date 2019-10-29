@@ -49,7 +49,7 @@ completed.addEventListener("click", editCompletedTasks);
 function addTask(e) {
     e.preventDefault();
     // If no value show message
-    // We eliminate white spaces trim()
+    // We eliminate white spaces trim() -> https://mzl.la/2NpNSqI
     if (taskInput.value.trim() === "") {
         alert("Are you lazy! Add a task!");
     } else {
@@ -96,6 +96,8 @@ function saveTasks(task) {
     if (localStorage.getItem("tasks") === null) {
         tasks = [];
     } else {
+        // We need to parse as we get an OBJ to be able to use it
+        // -> https://mzl.la/2pb04nn
         tasks = JSON.parse(localStorage.getItem("tasks"));
     }
     // pushing the task into []
@@ -125,12 +127,19 @@ function saveCompletedTasks(task) {
     localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
 }
 
-// Get tasks from local storage
+/**
+ *
+ * Get tasks from local storage
+ * we get our tasks from local-storage and show it
+ *
+ */
 function getTasks() {
     var tasks;
+    // If [] empty I do not get any
     if (localStorage.getItem("tasks") === null) {
         tasks = [];
     } else {
+        // If ![] I parse the data OBJ from local-storage
         tasks = JSON.parse(localStorage.getItem("tasks"));
     }
     tasks.forEach(function(task) {
@@ -153,7 +162,11 @@ function getTasks() {
     });
 }
 
-// Get completed tasks from local storage
+/**
+ *
+ *  Get completed tasks from local storage
+ *
+ * */
 function getCompletedTasks() {
     var completedTasks;
     if (localStorage.getItem("completedTasks") === null) {
@@ -161,6 +174,7 @@ function getCompletedTasks() {
     } else {
         completedTasks = JSON.parse(localStorage.getItem("completedTasks"));
     }
+    // We loop our tasks and add to it elements
     completedTasks.forEach(function(task) {
         // Create li
         var item = document.createElement("li");
@@ -181,19 +195,35 @@ function getCompletedTasks() {
     });
 }
 
-// Remove task
+/**
+ *
+ * Remove task
+ * we remove a single task
+ *
+ **/
 function removeTask(e) {
+    // We target the correct li
     var li = e.target.parentElement.parentElement;
+    // We target the correct a
     var a = e.target.parentElement;
+    // we check if the a contains the added class delete-item
     if (a.classList.contains("delete-item")) {
+        // When the event is trig we need to confirm the remove
         if (confirm("Are You Sure ?")) {
+            // remove the li
             li.remove();
+            // remove the data from local-storage
             removeFromLocalStorage(li);
         }
     }
 }
 
-// Remove task from local storage
+/***
+ *
+ * Remove task from local storage
+ * we are removing our task data from local-storage
+ *
+ */
 function removeFromLocalStorage(taskItem) {
     var tasks;
     // If empty local storage then empty []
@@ -212,7 +242,12 @@ function removeFromLocalStorage(taskItem) {
     // Set the local storage
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-// Remove completed task from local storage
+/**
+ *
+ * Remove completed task from local storage
+ * we are removing the completed task
+ *
+ */
 function removeCompletedFromLocalStorage(taskItem) {
     var completedTasks;
     // Completed tasks from LS [] then empty []
@@ -231,16 +266,29 @@ function removeCompletedFromLocalStorage(taskItem) {
     // Set local storage
     localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
 }
-// Clear all tasks from the DOM
+
+/**
+ *
+ * Clear all tasks from the DOM
+ * we reset out view ans local-storage
+ * from all data
+ *
+ * */
 function clearTasks() {
     //Clear task from the dom
+    // We loop all and removing
     while (taskList.firstChild) {
         taskList.removeChild(taskList.firstChild);
     }
     // Clear from local storage
     clearAllLocalStorage();
 }
-// Clear completed tasks from DOM
+
+/**
+ *
+ *  Clear completed tasks from DOM and local-storage
+ *
+*/
 function clearCompletedTasks() {
     if (confirm("Destroy all ?")) {
         //Clear from DOM
@@ -251,16 +299,37 @@ function clearCompletedTasks() {
         clearAllLocalStorage();
     }
 }
-// Clear all from local storage
+
+/**
+ *
+ * Clear all from local storage
+ * we wipe out all the persistent data
+ *
+ */
 function clearAllLocalStorage() {
     localStorage.clear();
 }
-// Filter tasks
+
+/**
+ *
+ * Filter tasks
+ * we here filter the tasks when we search for it
+ *
+ * TODO Make the filter validation better to check also the order of the input characters
+ * TODO as a check if we write to do or od ot
+ *
+ *
+*/
 function filterTasks(e) {
     var value = e.target.value.toLowerCase();
     // Filtering the tasks & showing nothing if not match
     document.querySelectorAll(".collection-item").forEach(function(i) {
         var text = i.firstChild.textContent;
+        // We just check starting from first letter
+        // to the value matching the letters
+        // Ex: we have a task called "TODO"
+        // we write "T" as first then we see in the filter all the tasks having "T"
+        // but if we wright "Ta" no result
         if (text.toLowerCase().indexOf(value) != -1) {
             i.style.display = "block";
         } else {
@@ -269,7 +338,12 @@ function filterTasks(e) {
     });
 }
 
-// Add completed task to completed task list
+/**
+ *
+ * Add completed task to completed task list
+ * we are adding to the complete task to the complete list
+ *
+ */
 function addToCompletedTasks(e) {
     var target = e.target;
     if (target.classList.contains("collection-item")) {
@@ -280,7 +354,9 @@ function addToCompletedTasks(e) {
         // Append li to completed item
         completed.appendChild(target);
         // Check animation
+        // TODO make it better with an icon and not text
         document.querySelector(".green-check").classList.add("check");
+        // We show completed message in 1s
         setTimeout(function() {
             document.querySelector(".green-check").classList.remove("check");
         }, 1000);
@@ -301,8 +377,16 @@ function addToCompletedTasks(e) {
         saveComTasks(target.parentElement.textContent);
     }
 }
-// Remove item from completed task
+
+/**
+ *
+ * Remove item from completed task
+ * we just point to remove the elements from the completed list
+*/
 function editCompletedTasks(e) {
+    // We check where we adde class comp == completed
+    // We need to point the right list as we have 2
+    // 1 is for tasks not completed and 2 completed tasks
     if (e.target.classList.contains("comp")) {
         if (confirm("Are you Sure ?")) {
             e.target.parentElement.parentElement.remove();
