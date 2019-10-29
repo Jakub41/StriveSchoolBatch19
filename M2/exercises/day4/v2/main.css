@@ -1,0 +1,14 @@
+/* Team Area */
+#teamarea .active .card {
+    border: 2px solid #28a745;
+}
+
+#teamarea .card {
+    min-height: 200px;
+}
+
+/* Heading */
+h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
