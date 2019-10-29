@@ -78,10 +78,22 @@ function removeElsewhereLinks() {
 removeElsewhereLinks();
 
 // EX7
-function trimCharactersFromPost() {
-    var allBlogPostText = $(".blog-post p").tex;
-    console.log(allBlogPostText);
+function trimCharacters() {
+    let blogPost = $(".blog-post");
+    blogPost.forEach(d => {
+        d.textContent = d.textContent.substring(0, 150);
+    });
+}
+//trimCharacters();
 
+// Bis
+function trimAgain() {
+    for (let post of $("div.blog-post")) {
+        let content = post.textContent.substring(0, 150);
+        post.innerHTML = content;
+    }
 }
 
-trimCharactersFromPost();
+trimAgain();
+
+// EX 8
