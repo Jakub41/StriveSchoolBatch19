@@ -1,0 +1,386 @@
+/* Jumbotron */
+.jumbotron {
+    background: url("https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")
+        center center / cover no-repeat;
+}
+
+.jumbotron .container {
+    background: rgba(200, 54, 54, 0.8);
+    border-radius: 21px;
+    padding: 2%;
+}
+
+/* breadcrumb */
+#bread-crumb {
+    margin-top: -32px;
+}
+
+.breadcrumb {
+    width: 100%;
+    background-color: rgba(235, 220, 220, 0.3);
+}
+
+.breadcrumb-arrow {
+    min-height: 36px;
+    line-height: 36px;
+    list-style: none;
+    overflow: auto;
+}
+
+.breadcrumb-arrow li:first-child a {
+    border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+}
+
+.breadcrumb-arrow li,
+.breadcrumb-arrow li a,
+.breadcrumb-arrow li span {
+    display: inline-block;
+}
+
+.breadcrumb-arrow li:not(:first-child) {
+    margin-left: -5px;
+}
+
+.breadcrumb-arrow li + li:before {
+    padding: 0;
+    content: "";
+}
+
+.breadcrumb-arrow li span {
+    padding: 0 10px;
+}
+
+.breadcrumb-arrow li a,
+.breadcrumb-arrow li:not(:first-child) span {
+    height: 36px;
+    padding: 0 10px 0 25px;
+    line-height: 36px;
+}
+
+.breadcrumb-arrow li:first-child a {
+    padding: 0 10px;
+}
+
+.breadcrumb-arrow li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    background-color: #ab492ccf;
+    border: 1px solid #9b7447;
+}
+
+.breadcrumb-arrow li:first-child a {
+    padding-left: 10px;
+}
+
+.breadcrumb-arrow li a:after,
+.breadcrumb-arrow li a:before {
+    position: absolute;
+    top: -1px;
+    width: 0;
+    height: 0;
+    content: "";
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+}
+
+.breadcrumb-arrow li a:before {
+    right: -10px;
+    z-index: 3;
+    border-left-color: #343a40;
+    border-left-style: solid;
+    border-left-width: 10px;
+}
+
+.breadcrumb-arrow li a:after {
+    right: -11px;
+    z-index: 2;
+    border-left: 11px solid #fff;
+}
+
+.breadcrumb-arrow li a:focus,
+.breadcrumb-arrow li a:hover {
+    border: 3px solid #0080ff;
+}
+
+.breadcrumb-arrow li a:focus:before,
+.breadcrumb-arrow li a:hover:before {
+    border-left-color: #40474e;
+}
+
+.breadcrumb-arrow li a:active {
+    background-color: #32fa00;
+    border: 1px solid #40474e;
+    color: #343a40;
+}
+
+.breadcrumb-arrow li a:active:after,
+.breadcrumb-arrow li a:active:before {
+    border-left-color: #40474e;
+}
+
+/*set for Last child*/
+
+.breadcrumb-arrow li.active span {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    background-color: #5c0606;
+    border: 1px solid #520000;
+}
+
+.breadcrumb-arrow li.active:first-child span {
+    padding-left: 10px;
+}
+
+.breadcrumb-arrow li.active span:after,
+.breadcrumb-arrow li.active span:before {
+    position: absolute;
+    top: -1px;
+    width: 0;
+    height: 0;
+    content: "";
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+}
+
+.breadcrumb-arrow li.active span:before {
+    right: -10px;
+    z-index: 3;
+    border-left-color: #ce8744;
+    border-left-style: solid;
+    border-left-width: 11px;
+}
+
+.breadcrumb-arrow li.active span:after {
+    right: -11px;
+    z-index: 2;
+    border-left: 10px solid #ce8744;
+}
+
+/* Music cards */
+.fav-music {
+    background-color: rgba(240, 128, 0, 0.5);
+    border-radius: 21px;
+}
+
+.fav-music .bg-warning {
+    background-color: #ff8900 !important;
+}
+
+.card {
+    border-radius: 0;
+}
+
+.card-body {
+    color: white;
+    text-shadow: 0px 1px 0px black;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-position: top center;
+    transition: 0.5s ease;
+    -webkit-transform: 0.5s ease;
+    transform: 0.5s ease;
+}
+.card-body a {
+    transition: 0.5s ease;
+    color: orange;
+    text-decoration: none;
+}
+.card-body:hover a {
+    color: #ffd280;
+}
+
+.card-footer {
+    font-weight: 100;
+    color: rgba(0, 0, 0, 0.75);
+    background-color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+[data-filter="overlay-dark"],
+[data-filter="overlay-primary"],
+[data-filter="overlay-warning"],
+[data-filter="overlay-alert"],
+[data-filter="overlay-secondary"],
+[data-filter="overlay-default"],
+[data-filter="overlay-info"],
+[data-filter="overlay-success"] {
+    background: url("https://images.unsplash.com/photo-1549189078-ab312714cb61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80")
+        center center / cover no-repeat;
+}
+
+[data-filter="overlay-dark"]:before,
+[data-filter="overlay-primary"]:before,
+[data-filter="overlay-warning"]:before,
+[data-filter="overlay-alert"]:before,
+[data-filter="overlay-secondary"]:before,
+[data-filter="overlay-default"]:before,
+[data-filter="overlay-info"]:before,
+[data-filter="overlay-success"]:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+}
+
+[data-filter="overlay-dark"],
+[data-filter="overlay-primary"],
+[data-filter="overlay-warning"],
+[data-filter="overlay-alert"],
+[data-filter="overlay-secondary"],
+[data-filter="overlay-default"],
+[data-filter="overlay-info"],
+[data-filter="overlay-success"] {
+    background-size: cover;
+    position: relative;
+}
+[data-filter="overlay-dark"] > *,
+[data-filter="overlay-primary"] > *,
+[data-filter="overlay-warning"] > *,
+[data-filter="overlay-alert"] > *,
+[data-filter="overlay-secondary"] > *,
+[data-filter="overlay-default"] > *,
+[data-filter="overlay-info"] > *,
+[data-filter="overlay-success"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-dark"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-primary"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-warning"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-alert"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-secondary"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-default"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-info"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-success"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-warning"] > * {
+    position: relative;
+}
+
+[data-filter="overlay-dark"]:before {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+[data-filter="overlay-primary"]:before {
+    background-color: rgba(0, 0, 255, 0.5);
+}
+
+[data-filter="overlay-alert"]:before {
+    background-color: rgba(255, 165, 0, 0.5);
+}
+
+[data-filter="overlay-secondary"]:before {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+[data-filter="overlay-default"]:before {
+    background-color: rgba(0, 128, 0, 0.3);
+}
+
+[data-filter="overlay-info"]:before {
+    background-color: rgba(0, 255, 255, 0.3);
+}
+
+[data-filter="overlay-success"]:before {
+    background-color: rgba(255, 0, 255, 0.5);
+}
+
+[data-filter="overlay-warning"]:before {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+/* Table track list */
+.track-list .card {
+    border-radius: 21px;
+    background-color: rgba(202, 38, 38, 0.233);
+}
+
+.success-text {
+    color: #e96113;
+}
+
+.table.table-bordered th {
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 100%;
+}
+
+/* Taller footer on small screens */
+@media (max-width: 34em) {
+    body {
+        margin-bottom: 500px;
+    }
+    .footer {
+        height: 500px;
+    }
+}
+
+/* Sticky footer style and color
+  -------------------------------------------------- */
+footer {
+    padding-top: 30px;
+    background-color: #292c2f;
+    color: #bbb;
+}
+
+footer a {
+    color: #999;
+    text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #aaa;
+    text-decoration: none;
+    border-bottom: 1px dotted #999;
+}
+
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
