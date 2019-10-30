@@ -94,6 +94,21 @@ function trimAgain() {
     }
 }
 
-trimAgain();
+// trimAgain();
 
 // EX 8
+var buttonNew = $1("main .blog-pagination > :nth-child(2)");
+console.log("ButtonNew",buttonNew);
+
+// Remove the disable class to make the button clickable
+buttonNew.classList.remove("disabled");
+
+// The click event calling a function
+buttonNew.addEventListener("click", newPost);
+
+// NewPost called from the click and create a new post
+function newPost() {
+    console.log("Clicking");
+
+}
+
