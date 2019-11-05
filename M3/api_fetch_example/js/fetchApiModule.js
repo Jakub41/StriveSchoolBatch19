@@ -17,7 +17,7 @@
  */
 
 // Define our base URL to API
-const apiUrl = "https://www.balldontlie.io/api/v1/";
+const apiUrl = "https://www.balldontlie.io/api/v1";
 
 // We define our private functionalities to fetch the data
 // I n general we perform write/read API calls
