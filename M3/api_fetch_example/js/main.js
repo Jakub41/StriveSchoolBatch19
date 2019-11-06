@@ -1,33 +1,30 @@
 import Players from "./getDataPlayersModule.js";
 import Helper from "./helper.js";
 
-console.log("main");
-
-let players = Players.getAllPlayers();
-
-function showPlayers(table, players) {
-    console.log("show all players");
-    let thead = table.createTHead();
-    let row = thead.insertRow();
-    for (let key of players) {
-        let th = document.createElement("th");
-        let text = document.createTextNode(key);
-        th.appendChild(text);
-        row.appendChild(th);
-    }
+function displayPlayerTables(table, players) {
+    let out = "";
+    out += `<thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>`;
+    out += `<tbody>`;
+    players.map(player => {
+        out += `<tr>
+                    <td>${player.first_name}</td>
+                    <td>${player.last_name}</td>
+               </tr>`;
+    });
+    out += `</tbody>`;
+    table.insertAdjacentHTML("afterbegin", out);
 }
 
-function generateTable(table, players) {
-    for (let element of players) {
-      let row = table.insertRow();
-      for (let key in element) {
-        let cell = row.insertCell();
-        let text = document.createTextNode(element[key]);
-        cell.appendChild(text);
-      }
-    }
-  }
-  let table = document.querySelector("table");
-  let data = Object.keys(players[0]);
-  generateTableHead(table, players);
-  generateTable(table, players);
+async function init() {
+    let players = await Players.getAllPlayers();
+    let table = document.querySelector("table");
+    let data = Object.keys(players[0]);
+    displayPlayerTables(table, players);
+}
+
+init();
