@@ -22,7 +22,6 @@ function displayPlayerTables(table, players) {
                     <td>${player.weight_pounds}</td>
                     <td>${player.position}</td>
                     <td>${player.team.name}</td>
-
                </tr>`;
     });
     out += `</tbody>`;
@@ -33,7 +32,6 @@ async function init() {
     let players = await Players.getAllPlayers();
     let table = Helper.$("table");
     table.className = "table";
-    //let data = Object.keys(players[0]);
     displayPlayerTables(table, players);
 }
 
