@@ -21,11 +21,23 @@ function displayPlayerTables(table, players) {
                     <td>${player.height_feet}ft ${player.height_inches}in</td>
                     <td>${player.weight_pounds}</td>
                     <td>${player.position}</td>
-                    <td>${player.team.name}</td>
+                    <td>${teamLogo(players)}</td>
                </tr>`;
     });
     out += `</tbody>`;
     table.insertAdjacentHTML("afterbegin", out);
+}
+
+function teamLogo (players) {
+    players.forEach(pl => {
+        let team = pl.team.name;
+        if (team === 'Pacers') {
+            console.log("Pacers");
+            return `
+            <img src="./icons/indiana.png" alt="pacers" width="30" height="30">
+            `;
+        }
+    });
 }
 
 async function init() {
@@ -33,6 +45,8 @@ async function init() {
     let table = Helper.$("table");
     table.className = "table";
     displayPlayerTables(table, players);
+
+    teamLogo(players);
 }
 
 init();
