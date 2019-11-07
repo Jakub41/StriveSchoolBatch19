@@ -29,10 +29,14 @@ const showALlProducts = listOfProducts => {
         // fetched from API
         out += `<div class="col-sm-6 col-md-4 py-2">`;
         out += `    <div class="card h-100 d-flex flex-column">`;
+                        // To img we give src of the img from JSON OBJ and ALT the ASIN
         out += `        <img src="${product.img}" class="card-img-top" alt="${product.asin}">`;
         out += `        <div class="card-body">`;
+                            // We pass product title & price from JSON OBJ
         out += `            <h5 class="card-title">${product.title}</h5>`;
         out += `            <p class="card-text">${product.price}$</p>`;
+                            // Button add to cart
+        out += `            <button class="btn add-to-cart"><i class="fas fa-cart-plus"></i></button>`;
         out += `        </div>`;
         out += `    </div>`;
         out += `</div>`;

@@ -1,5 +1,27 @@
+ /* Card image  */
 .card-img-top {
     width: 100%;
     height: 15vw;
-    object-fit: cover;
+    object-fit: contain;
 }
+
+/* Card button */
+.btn.add-to-cart {
+    position: absolute;
+    top: 8%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    /* background-color: #555; */
+    color: green;
+    font-size: 26px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .btn.add-to-cart:hover {
+    color: black;
+  }
