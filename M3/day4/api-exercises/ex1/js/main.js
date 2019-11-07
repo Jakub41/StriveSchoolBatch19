@@ -13,12 +13,13 @@ window.onload = event => {
         .then(product => {
             // We call the method passing the data
             showALlProducts(product);
+            searchProducts(product);
         });
 };
 
 // we show all products
 const showALlProducts = listOfProducts => {
-    console.log(listOfProducts);
+    // console.log(listOfProducts);
     // Defining an output to the DOM as starting point empty
     let out = ``;
     // We loop into products
@@ -29,13 +30,13 @@ const showALlProducts = listOfProducts => {
         // fetched from API
         out += `<div class="col-sm-6 col-md-4 py-2">`;
         out += `    <div class="card h-100 d-flex flex-column">`;
-                        // To img we give src of the img from JSON OBJ and ALT the ASIN
+        // To img we give src of the img from JSON OBJ and ALT the ASIN
         out += `        <img src="${product.img}" class="card-img-top" alt="${product.asin}">`;
         out += `        <div class="card-body">`;
-                            // We pass product title & price from JSON OBJ
+        // We pass product title & price from JSON OBJ
         out += `            <h5 class="card-title">${product.title}</h5>`;
         out += `            <p class="card-text">${product.price}$</p>`;
-                            // Button add to cart & skip
+        // Button add to cart & skip
         out += `            <button class="btn add-to-cart"><i class="fas fa-cart-plus"></i></button>`;
         out += `            <button class="btn skip"><i class="far fa-trash-alt"></i></button>`;
         out += `        </div>`;
@@ -48,4 +49,22 @@ const showALlProducts = listOfProducts => {
     row.innerHTML = out;
 };
 
+// Product Search
+const searchProducts = searchProductQuery => {
+    console.log(searchProductQuery);
 
+    // lets filters it
+    let searchInput = document.querySelector(".search-product-query");
+
+    const filterProducts = () => {
+        keyword = searchInput.value.toLowerCase();
+        filteredProducts = searchProductQuery.filter( product => {
+            product.toLowerCase();
+            return product.indexOf(keyword) > -1;
+        });
+
+        showALlProducts(filterProducts);
+    };
+
+    searchInput.addEventListener("keyup", filterProducts);
+};

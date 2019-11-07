@@ -42,8 +42,20 @@
 
 <body>
     <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="search-products" class="mtop-5">
+                    <div class="input-group search-query">
+                        <input type="text" class="search-product-query" placeholder="Search Product...">
+                        <div class="icon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- All Products -->
         <div class="row py-10" id="all-products">
-
+            <!-- Search Query Results -->
+            <div id="product-results"></div>
         </div>
     </div>
 
@@ -60,6 +72,7 @@
         crossorigin="anonymous"></script>
     <!-- Custom Scripts -->
     <script src="./js/main.js"></script>
+    <script src="./js/search.js"></script>
 </body>
 
 </html>
