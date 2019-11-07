@@ -1,5 +1,5 @@
 // Global constants
-const products = [];
+//const products = [];
 // Load on document load
 window.onload = event => {
     console.log("page loaded...");
@@ -19,27 +19,28 @@ window.onload = event => {
 // we show all products
 const showALlProducts = listOfProducts => {
     console.log(listOfProducts);
-    // Selecting the row where to append the card
-    let row = document.querySelector("#all-products");
     // Defining an output to the DOM as starting point empty
-    let out;
+    let out = ``;
+    // We loop into products
     listOfProducts.forEach(product => {
-        console.log(product);
-        out += `<div class="col-sm-6 col-md-4">Hello</div>`;
-        // out += `<div class="card mb-3">`;
-        // out += `<img src="${product.img}" class="card-img-top" alt="${product.asin}">`;
-        // out += `<div class="card-body">`;
-        // out += `<div class="card-body">`;
-        // out += `<h5 class="card-title">${product.title}</h5>`;
-        // out += `<p class="card-text">${product.price}$</p>`;
-        // out += `</div>`;
-        // out += `</div>`;
-        // out += `</div>`;
-        // out += `</div>`;
+        // We create a template a blueprint for our cards and passing with literal template
+        // Dynamically as foreach will loop and for every product in the array will print the card
+        // using ${product.title} we pass the title of the product from JSON OBJ of our products
+        // fetched from API
+        out += `<div class="col-sm-6 col-md-4 py-2">`;
+        out += `    <div class="card h-100 d-flex flex-column">`;
+        out += `        <img src="${product.img}" class="card-img-top" alt="${product.asin}">`;
+        out += `        <div class="card-body">`;
+        out += `            <h5 class="card-title">${product.title}</h5>`;
+        out += `            <p class="card-text">${product.price}$</p>`;
+        out += `        </div>`;
+        out += `    </div>`;
+        out += `</div>`;
     });
 
-    // Attach card to dom row
-    row.append(out);
+    // Selecting the row where to append the card and attach the card
+    let row = document.querySelector("#all-products");
+    row.innerHTML = out;
 };
 
 
