@@ -35,8 +35,9 @@ const showALlProducts = listOfProducts => {
                             // We pass product title & price from JSON OBJ
         out += `            <h5 class="card-title">${product.title}</h5>`;
         out += `            <p class="card-text">${product.price}$</p>`;
-                            // Button add to cart
+                            // Button add to cart & skip
         out += `            <button class="btn add-to-cart"><i class="fas fa-cart-plus"></i></button>`;
+        out += `            <button class="btn skip"><i class="far fa-trash-alt"></i></button>`;
         out += `        </div>`;
         out += `    </div>`;
         out += `</div>`;
