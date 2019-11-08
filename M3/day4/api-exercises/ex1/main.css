@@ -115,6 +115,33 @@ body {
     transition: 0.5%;
 }
 
+/* Shopping Bag */
+.shopping-cart {
+    position: absolute;
+    top: 7%;
+    left: 80%;
+}
+
+.shopping-cart i {
+    font-size: 2em;
+    color: blue;
+}
+
+.badge {
+    background-color: #6394F8;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* Card Bag Inside */
+
 /* Card image  */
 .card-img-top {
     width: 100%;
