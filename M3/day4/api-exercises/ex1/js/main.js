@@ -19,10 +19,18 @@ window.onload = event => {
 
 // we show all products
 const showALlProducts = listOfProducts => {
-  // console.log(listOfProducts);
   // Defining an output to the DOM as starting point empty
-  // let out = ``;
-  let out = listOfProducts.length === 0 ? "No products found" : "";
+  // Message for thee user when no product
+  let messageNoResults = `
+        <div class="emoji  emoji--sad">
+        <div class="emoji__face">
+            <div class="emoji__eyebrows"></div>
+            <div class="emoji__eyes"></div>
+            <div class="emoji__mouth"></div>
+        </div>
+  `;
+  // We check for products from search input if not we show message
+  let out = listOfProducts.length === 0 ? messageNoResults : "";
   // We loop into products
   listOfProducts.forEach(product => {
     // We create a template a blueprint for our cards and passing with literal template
@@ -54,17 +62,20 @@ const showALlProducts = listOfProducts => {
 const searchProducts = searchProductQuery => {
   // lets filters it
   let searchInput = document.querySelector(".search-product-query");
-
+  // We filter the products based on the keyword
   const filterProducts = keyword => {
     filteredProducts = searchProductQuery.filter(product =>
       product.title.toLowerCase().includes(keyword.toLowerCase())
     );
+    // We use same cards calling the function just displaying only results
     showALlProducts(filteredProducts);
   };
-
+  // Search input after 3 char on keyup the search begin
   searchInput.addEventListener("keyup", e => {
+    // If char written >= 3
     if (e.target.value.length >= 3) {
       filterProducts(e.target.value);
+      // Otherwise we just show all products
     } else if (e.target.value.length === 0) {
       showALlProducts(searchProductQuery);
     }
