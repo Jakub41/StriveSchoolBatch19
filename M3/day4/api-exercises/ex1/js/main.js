@@ -57,7 +57,7 @@ const searchProducts = searchProductQuery => {
 
   const filterProducts = keyword => {
     filteredProducts = searchProductQuery.filter(product =>
-      product.title.toLowerCase().includes(keyword)
+      product.title.toLowerCase().includes(keyword.toLowerCase())
     );
     showALlProducts(filteredProducts);
   };
