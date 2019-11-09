@@ -3,6 +3,8 @@
 // Load on document load
 window.onload = event => {
   console.log("page loaded...");
+  // Spinner load
+  showSpinner();
   // API base URL
   const url = "https://api.myjson.com/bins/18fh4d";
   // Fetch the API

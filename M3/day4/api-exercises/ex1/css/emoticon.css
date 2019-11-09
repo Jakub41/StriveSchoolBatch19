@@ -57,9 +57,6 @@
     height: inherit;
 }
 
-.emoji--sad:after {
-}
-
 .emoji--sad .emoji__face {
     animation: sad-face 2s ease-in infinite;
 }

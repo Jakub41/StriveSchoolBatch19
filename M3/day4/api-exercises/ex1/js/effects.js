@@ -11,3 +11,12 @@ document.querySelector("#cart").addEventListener("click", () => {
     let shoppingBag = document.querySelector(".shopping-bag");
     shoppingBag.classList.toggle("active");
 });
+
+// Spinner
+const showSpinner = () => {
+    const spinner = document.querySelector("#spinner");
+    spinner.classList.add('show');
+    setTimeout(() => {
+        spinner.classList.remove('show');
+    }, 5000);
+};
