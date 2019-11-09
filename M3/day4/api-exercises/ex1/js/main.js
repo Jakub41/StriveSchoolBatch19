@@ -38,7 +38,7 @@ const showALlProducts = listOfProducts => {
     // using ${product.title} we pass the title of the product from JSON OBJ of our products
     // fetched from API
     out += `<div class="col-sm-6 col-md-4 py-2">`;
-    out += `    <div class="card h-100 d-flex flex-column">`;
+    out += `    <div id="${product.asin}" class="card h-100 d-flex flex-column">`;
     // To img we give src of the img from JSON OBJ and ALT the ASIN
     out += `        <img src="${product.img}" class="card-img-top" alt="${product.asin}">`;
     out += `        <div class="card-body">`;

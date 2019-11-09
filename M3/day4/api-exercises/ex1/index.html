@@ -16,7 +16,7 @@
             TODO 3) When the button is pressed, change the style of the item and add it to another list
             TODO 4) Add "skip" button next to each item
             TODO 5) When pressed, the button should remove from the page the item not interesting from the user
-            TODO 6) Add a "search bar". When the user types more than 3 chars, you should filter the content of the page to show only the items with a matching name (hint: use .filter method)
+            !6) Add a "search bar". When the user types more than 3 chars, you should filter the content of the page to show only the items with a matching name (hint: use .filter method)
             TODO 7) Allow the user to delete items from the cart list
 
             [EXTRA]
@@ -25,7 +25,7 @@
             TODO 10) In page "detail" show some details of the selected product
         -->
 
-    <title>Title</title>
+    <title>Shop</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,12 +39,15 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/emoticon.css">
+    <link rel="stylesheet" href="./css/shopping_bag.css">
 </head>
 
 <body>
+    <!-- Top container -->
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <!-- Search product -->
                 <div id="search-products" class="mtop-5">
                     <div class="input-group search-query">
                         <input type="text" class="search-product-query" placeholder="Search Product...">
@@ -52,7 +55,8 @@
                     </div>
                 </div>
             </div>
-            <div class="shopping-cart">
+            <!-- Shopping cart -->
+            <div class="shopping-cart" id="cart">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="badge">0</span>
             </div>
@@ -63,6 +67,46 @@
             <div id="product-results"></div>
         </div>
     </div>
+    <!-- Shopping cart -->
+    <div class="container shopping-bag-container">
+        <div class="shopping-bag">
+            <div class="shopping-cart-header">
+                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+                <div class="shopping-cart-total">
+                    <span class="lighter-text">Total:</span>
+                    <span class="main-color-text">$2,229.97</span>
+                </div>
+            </div>
+            <!--end shopping-cart-header -->
+
+            <ul class="shopping-cart-items">
+                <li class="clearfix">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+                    <span class="item-name">Sony DSC-RX100M III</span>
+                    <span class="item-price">$849.99</span>
+                    <span class="item-quantity">Quantity: 01</span>
+                </li>
+
+                <li class="clearfix">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
+                    <span class="item-name">KS Automatic Mechanic...</span>
+                    <span class="item-price">$1,249.99</span>
+                    <span class="item-quantity">Quantity: 01</span>
+                </li>
+
+                <li class="clearfix">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
+                    <span class="item-name">Kindle, 6" Glare-Free To...</span>
+                    <span class="item-price">$129.99</span>
+                    <span class="item-quantity">Quantity: 01</span>
+                </li>
+            </ul>
+
+            <a href="#" class="button">Checkout</a>
+        </div>
+        <!--end shopping-cart -->
+    </div>
+    <!--end container -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -77,7 +121,7 @@
         crossorigin="anonymous"></script>
     <!-- Custom Scripts -->
     <script src="./js/main.js"></script>
-    <script src="./js/search.js"></script>
+    <script src="./js/effects.js"></script>
 </body>
 
 </html>
