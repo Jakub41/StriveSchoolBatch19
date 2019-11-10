@@ -1,5 +1,6 @@
 // Global constants
-//const products = [];
+const products = [];
+const shoppingCart = [];
 // Load on document load
 window.onload = event => {
   console.log("page loaded...");
@@ -57,17 +58,14 @@ const showALlProducts = listOfProducts => {
     out += `    </div>`;
     out += `</div>`;
 
-    let productSelected = document.querySelector(`#${product.asin}`);
-    console.log(productSelected);
   });
+
   row.innerHTML = out;
 
-  // Add to cart
-
-//   document.querySelector(".add-to-cart").addEventListener("click", () => {
-//     console.log("click");.classList.add(".selected");
-
-//   });
+ let test = row.querySelector('.add-to-cart').addEventListener('click', product => {
+    const productId = document.querySelector(`#${product.asin}`);
+    productId.class.add('selected');
+ });
 
 };
 
@@ -94,3 +92,4 @@ const searchProducts = searchProductQuery => {
     }
   });
 };
+
