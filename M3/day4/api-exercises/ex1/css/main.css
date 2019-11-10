@@ -12,6 +12,10 @@ body {
     border: 1px green solid;
 }
 
+.fa-minus-square {
+    color: red;
+}
+
 /* Search */
 #search-products {
     position: relative;
