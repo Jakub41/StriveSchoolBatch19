@@ -3,10 +3,11 @@
 // Load on document load
 window.onload = event => {
   console.log("page loaded...");
+  // API URL
+  const url = "https://api.myjson.com/bins/18fh4d";
   // Spinner load
   showSpinner();
   // API base URL
-  const url = "https://api.myjson.com/bins/18fh4d";
   // Fetch the API
   fetch(url, { method: "GET" })
     // We get response in JSON OBJ
@@ -31,6 +32,8 @@ const showALlProducts = listOfProducts => {
             <div class="emoji__mouth"></div>
         </div>
   `;
+  // Selecting the row where to append the card and attach the card
+  let row = document.querySelector("#all-products");
   // We check for products from search input if not we show message
   let out = listOfProducts.length === 0 ? messageNoResults : "";
   // We loop into products
@@ -53,11 +56,19 @@ const showALlProducts = listOfProducts => {
     out += `        </div>`;
     out += `    </div>`;
     out += `</div>`;
-  });
 
-  // Selecting the row where to append the card and attach the card
-  let row = document.querySelector("#all-products");
+    let productSelected = document.querySelector(`#${product.asin}`);
+    console.log(productSelected);
+  });
   row.innerHTML = out;
+
+  // Add to cart
+
+//   document.querySelector(".add-to-cart").addEventListener("click", () => {
+//     console.log("click");.classList.add(".selected");
+
+//   });
+
 };
 
 // Product Search

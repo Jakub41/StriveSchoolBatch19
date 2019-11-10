@@ -8,6 +8,10 @@ body {
     margin-top: 5%;
 }
 
+.selected {
+    border: 1px green solid;
+}
+
 /* Search */
 #search-products {
     position: relative;
