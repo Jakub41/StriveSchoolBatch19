@@ -64,29 +64,26 @@ const showALlProducts = listOfProducts => {
     // Add cart and select/deselect the product
     listOfProducts.map(pro => {
         document
-            // selecting and adding click event
             .querySelector(`#${pro.asin} .add-to-cart`)
             .addEventListener("click", () => {
-                // on click event select the right product and highline the border
-                document
-                    .querySelector(`#${pro.asin}`)
-                    .classList.add("selected");
-                // Remove Icon
                 let cardProduct = document.querySelector(
                     `#${pro.asin} .add-to-cart > i`
                 );
-                cardProduct.classList.remove("fas", "fa-cart-plus");
-                // Change the icon with remove from card
-                cardProduct.classList.add("far", "fa-minus-square");
-            });
 
-        // document
-        //     .querySelector(`#${pro.asin} .fa-minus-square`)
-        //     .addEventListener("click", () => {
-        //         document
-        //             .querySelector(`#${pro.asin}`)
-        //             .classList.remove("selected");
-        //     });
+                if (cardProduct.classList.contains("fa-cart-plus")) {
+                    document
+                        .querySelector(`#${pro.asin}`)
+                        .classList.add("selected");
+                    cardProduct.classList.remove("fas", "fa-cart-plus");
+                    cardProduct.classList.add("far", "fa-minus-square");
+                } else {
+                    document
+                        .querySelector(`#${pro.asin}`)
+                        .classList.remove("selected");
+                    cardProduct.classList.add("fas", "fa-cart-plus");
+                    cardProduct.classList.remove("far", "fa-minus-square");
+                }
+            });
     });
 };
 
