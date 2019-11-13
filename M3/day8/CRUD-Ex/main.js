@@ -8,10 +8,8 @@ saveEvent = async event => {
       body: JSON.stringify(event), //Here i'm stringifying the object
       headers: new Headers({
         "Content-Type": "application/json",
-        "Authorization": "Basic " + atob("user25") + ":"+ atob("gX7HF4hYaYyJAzpt"),
-        "Access-Control-Allow-Origin": "http://127.0.0.1:5501/M3/day8/CRUD-Ex/back-office.html"
+        "Authorization": "Basic " + btoa(username +":"+password)
       }),
-      "mode": "no-cors"
     });
     return response; //returning the response because the frontend need to check the ok property
   };
