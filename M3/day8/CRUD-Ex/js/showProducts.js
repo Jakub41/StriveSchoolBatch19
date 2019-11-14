@@ -1,4 +1,4 @@
-initAllProducts = async() => {
+initAllProducts = async () => {
     let allProducts = await getProducts();
     console.log("All products...", allProducts);
     let productsSection = H.$("#products-section");
@@ -6,28 +6,26 @@ initAllProducts = async() => {
     productRowDiv.className = "row";
     let productCard = productsSection.appendChild(productRowDiv);
     showAllProduct(allProducts, productCard);
-    };
+};
 
-    showAllProduct = (allProducts, productCard) => {
-
-    productCard.innerHTML= allProducts.map(
-    product => `
+showAllProduct = (allProducts, productCard) => {
+    productCard.innerHTML = allProducts
+        .map(
+            product => `
+            <div class="col-sm-6 col-md-4 py-2">
+                <div id="${product._id}" class="card mb-4 text-white bg-dark h-100 d-flex flex-column">
+                    <img class="card-img-top" src="${product.imageUrl}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">${product.brand}</p>
+                        <p class="card-text">${product.description}</p>
+                        <p class="card-text">${product.price}</p>
+                        <a href="/details" class="btn btn-outline-light btn-sm">Details</a>
+                    </div>
+                </div>
+             </div>
     `
-    ).join('');
-
-    };
-
-    initAllProducts();
-/**
- <div class="col-md-4">
-        <div class="card mb-4 text-white bg-dark">
-            <img class="card-img-top" src="//placeimg.com/290/180/any" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
-                <a href="http://www.jquery2dotnet.com/" class="btn btn-outline-light btn-sm">Go somewhere</a>
-            </div>
-        </div>
-    </div>
- */
+        )
+        .join("");
+};
+initAllProducts();
