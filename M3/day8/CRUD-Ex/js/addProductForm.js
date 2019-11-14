@@ -1,5 +1,8 @@
 console.log("AddProductForm...");
-const addProductsForm = async () => {
+addProductsForm = async () => {
+
+    console.log("Adding product");
+
     const name = H.$("#name").val();
     const brand =  H.$("#brand").val();
     const description =  H.$("#description").val();
@@ -11,9 +14,12 @@ const addProductsForm = async () => {
         brand: brand,
         description: description,
         price: price,
-        imageUrl: image,
-
+        imageUrl: image
       });
 
       console.log(response);
+
+      return response;
 };
+
+addProductsForm();

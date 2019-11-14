@@ -12,7 +12,6 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
 </head>
-
 <body>
     <div class="container">
         <div class="row">
@@ -22,7 +21,7 @@
                         <h3 class="mb-0">Insert Product</h3>
                     </div>
                     <div class="card-body">
-                        <form autocomplete="off" class="form" role="form" id="addProductForm" onsubmit="addProductsForm()">
+                        <form autocomplete="off" class="form" role="form" id="addProductForm" onsubmit="addProductsForm();">
                             <fieldset>
                                 <label class="mb-0" for="name">Name</label>
                                 <div class="row mb-1">
@@ -49,7 +48,7 @@
                                             rows="6"></textarea>
                                     </div>
                                 </div>
-                                <div class="row mb-1">
+                                <!-- <div class="row mb-1">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="imageUpload">Upload</span>
@@ -60,7 +59,7 @@
                                             <label class="custom-file-label" for="imageUpload">Choose file</label>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <button class="btn btn-secondary btn-lg float-right" type="submit">Add</button>
                             </fieldset>
                         </form>
@@ -85,6 +84,8 @@
         crossorigin="anonymous"></script>
     <script src="./js/fetchData.js"></script>
     <script src="./js/addProductForm.js"></script>
+    <script src="./js/helper.js"></script>
+
 </body>
 
 </html>
