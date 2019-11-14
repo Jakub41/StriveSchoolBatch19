@@ -1,7 +1,7 @@
 initAllProducts = async () => {
     let allProducts = await getProducts();
     console.log("All products...", allProducts);
-    let productsSection = H.$("#products-section");
+    let productsSection = H.$1("#products-section");
     let productRowDiv = H.createNode("div");
     productRowDiv.className = "row";
     let productCard = productsSection.appendChild(productRowDiv);

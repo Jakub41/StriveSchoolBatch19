@@ -35,7 +35,7 @@ window.request = async (url, params, method = "GET") => {
         method,
         headers: {
             "Content-Type": "application/json",
-            Authorization: "Basic " + token
+            "Authorization": "Basic " + token
         }
     };
     // A check on params if any

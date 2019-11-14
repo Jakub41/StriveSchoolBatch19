@@ -13,7 +13,7 @@ const H = {
     // Append first child to parent
     append: (parent, element) => parent.appendChild(element),
     // Query selector
-    $: element => document.querySelector(element),
+    $1: element => document.querySelector(element),
     // Query selector all
-    $$: element => document.querySelectorAll(element)
+    $a: element => document.querySelectorAll(element)
 };
