@@ -3,8 +3,10 @@ initAllProducts = async () => {
     console.log("All products...", allProducts);
 
     let productsSection = H.$("#products-section");
-    let productRow = H.createNode("row");
+    let productRow = H.createNode("div");
+    productRow.className = "row";
     let productCard = productsSection.append(productRow);
+    productCard.innerHTML = "hello";
 
     showAllProduct(allProducts, productCard);
 };
