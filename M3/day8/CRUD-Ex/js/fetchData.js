@@ -5,7 +5,7 @@ const password = "gX7HF4hYaYyJAzpt";
 
 const token = btoa(username + ":" + password);
 
-window.onload = async (url, params, method = "GET") => {
+window.request = async (url, params, method = "GET") => {
     const options = {
         method,
         headers: {
@@ -48,18 +48,9 @@ generateErrorResponse = message => {
     };
 };
 
-get = (url, params) => {
-    return request(url, params);
-};
-
-create = (url, params) => {
-    return request(url, params, "POST");
-};
-
-update = (url, params) => {
-    return request(url, params, "PUT");
-};
-
-remove = (url, params) => {
-    return request(url, params, "DELETE");
+const Fetch = {
+    get: (url, params) => request(url, params),
+    create: (url, params) => request(url, params, "POST"),
+    update: (url, params) => request(url, params, "PUT"),
+    remove: (url, params) => request(url, params, "DELETE")
 };
