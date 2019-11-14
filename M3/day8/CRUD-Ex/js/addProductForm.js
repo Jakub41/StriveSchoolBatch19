@@ -1,10 +1,10 @@
 console.log("AddProductForm...");
-H.$("#addProductForm .btn").addEventListener("click", e => {
+H.$1("#addProductForm .btn").addEventListener("click", e => {
     e.preventDefault();
     const name = H.$1("#name").val;
     const brand = H.$1("#brand").val;
     const description = H.$1("#description").val;
-    const price = H.$("#price").val;
+    const price = H.$1("#price").val;
     const image = "https://picsum.photos/400";
     addProductsForm(name, brand, description, price, image);
 });
