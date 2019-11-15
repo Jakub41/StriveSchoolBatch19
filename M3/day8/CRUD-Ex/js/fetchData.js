@@ -53,8 +53,10 @@ window.request = async (url, params, method = "GET") => {
     const response = await fetch(api + url, options);
     // Error check
     if (response.status !== 200) {
+
         return generateErrorResponse(
-            "The server responded with an unexpected status."
+            "The server responded with an unexpected status.",
+            response.status
         );
     }
     // Result JSON OBJ
@@ -78,10 +80,11 @@ objectToQueryString = obj => {
 };
 // Generates the error message if status is not
 // * 200 OK
-generateErrorResponse = message => {
+generateErrorResponse = (message,response) => {
+    status = response;
     // We return status + message
     return {
-        status: "error",
+        status: status,
         message
     };
 };

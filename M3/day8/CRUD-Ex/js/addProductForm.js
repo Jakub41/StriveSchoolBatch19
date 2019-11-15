@@ -36,6 +36,14 @@ addProductsForm = async (name, brand, description, price, image) => {
         price: price,
         imageUrl: image
     });
-    // Reset the form on complete
+    //Error;
+    if (!response === 200) {
+        H.$1("#addProductForm").reset();
+        throw new Error("HTTP status " + response.status);
+    }
+    // Show Spinner
+    showSpinner();
     H.$1("#addProductForm").reset();
+
+    // Reset the form on complete
 };
