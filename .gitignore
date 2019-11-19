@@ -43,9 +43,6 @@ Temporary Items
 .history
 
 # End of https://www.gitignore.io/api/macos,visualstudiocode
-<<<<<<< HEAD
 .vscode/
-=======
 .vscode/settings.json
 *.zip
->>>>>>> b9a8e89a7224520ab7c328f0dfa5cec3e4cb26bb
