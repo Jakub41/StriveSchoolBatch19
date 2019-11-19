@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!--
+            You are creating the "shopping cart experience" for a Online Marketplace.
+​
+            You have the list of the available products from the current API:
+            https://api.myjson.com/bins/18fh4d
+​
+            What you have to do is:
+​
+            !0) Get all the products from the API using a fetch DONE
+            !1) Display the list of items available on the page using template literals `` and .forEach DONE
+            !2) Add a "add to cart button"
+            TODO 3) When the button is pressed, change the style of the item and add it to another list
+            TODO 4) Add "skip" button next to each item
+            TODO 5) When pressed, the button should remove from the page the item not interesting from the user
+            !6) Add a "search bar". When the user types more than 3 chars, you should filter the content of the page to show only the items with a matching name (hint: use .filter method)
+            TODO 7) Allow the user to delete items from the cart list
+
+            [EXTRA]
+            TODO 8) Add a "clean cart" button, to clean the whole list.
+            TODO 9) Create a second "detail page" for the product. When the user clicks on a product name, the app should redirect him to the secondary page, passing the ASIN in query string
+            TODO 10) In page "detail" show some details of the selected product
+        -->
+
+    <title>Shop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/emoticon.css">
+    <link rel="stylesheet" href="./css/shopping_bag.css">
+</head>
+
+<body>
+    <!-- Top container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Search product -->
+                <div id="search-products" class="mtop-5">
+                    <div class="input-group search-query">
+                        <input type="text" class="search-product-query" placeholder="Search Product...">
+                        <div class="icon"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Shopping cart -->
+            <div class="shopping-cart" id="cart">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="badge">0</span>
+            </div>
+        </div>
+        <!-- All Products -->
+        <div class="row py-10" id="all-products">
+            <!-- Spinner -->
+            <div id="spinner"></div>
+            <!-- Search Query Results -->
+            <div id="product-results"></div>
+        </div>
+    </div>
+    <!-- Shopping cart -->
+    <div class="container shopping-bag-container">
+        <div class="shopping-bag">
+            <div class="shopping-cart-header">
+                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+                <div class="shopping-cart-total">
+                    <span class="lighter-text">Total:</span>
+                    <span class="main-color-text">$2,229.97</span>
+                </div>
+            </div>
+            <!--end shopping-cart-header -->
+
+            <ul class="shopping-cart-items">
+                <li class="clearfix">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+                    <span class="item-name">Sony DSC-RX100M III</span>
+                    <span class="item-price">$849.99</span>
+                    <span class="item-quantity">Quantity: 01</span>
+                </li>
+
+                <li class="clearfix">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
+                    <span class="item-name">KS Automatic Mechanic...</span>
+                    <span class="item-price">$1,249.99</span>
+                    <span class="item-quantity">Quantity: 01</span>
+                </li>
+
+                <li class="clearfix">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
+                    <span class="item-name">Kindle, 6" Glare-Free To...</span>
+                    <span class="item-price">$129.99</span>
+                    <span class="item-quantity">Quantity: 01</span>
+                </li>
+            </ul>
+
+            <a href="#" class="button">Checkout</a>
+        </div>
+        <!--end shopping-cart -->
+    </div>
+    <!--end container -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- Custom Scripts -->
+    <script src="./js/main.js"></script>
+    <script src="./js/effects.js"></script>
+</body>
+
+</html>
