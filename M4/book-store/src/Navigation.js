@@ -1,4 +1,5 @@
 import React from "react";
+import { GiBookshelf } from "react-icons/gi";
 
 const NavItem = props => {
     const pageURI = window.location.pathname + window.location.search;
@@ -22,8 +23,8 @@ class Navigation extends React.Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="/">
-                    Books
+                <a className="navbar-brand" href="/home">
+                <GiBookshelf />
                 </a>
                 <button
                     className="navbar-toggler"
@@ -42,9 +43,9 @@ class Navigation extends React.Component {
                     id="navbarSupportedContent"
                 >
                     <ul className="navbar-nav mr-auto">
-                        <NavItem path="/" name="Home" />
-                        <NavItem path="/" name="About" />
-                        <NavItem path="/" name="Contact" />
+                        <NavItem path="/home" name="Home" />
+                        <NavItem path="/About" name="About" />
+                        <NavItem path="/Contact" name="Contact" />
                     </ul>
                 </div>
             </nav>
