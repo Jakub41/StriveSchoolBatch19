@@ -1,0 +1,233 @@
+/* Default CSS */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.mtop-5 {
+    margin-top: 5%;
+}
+
+.selected {
+    border: 1px green solid;
+}
+
+.fa-minus-square {
+    color: red;
+}
+
+/* Search */
+#search-products {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.search-query {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transition: width 0.5s;
+    overflow: hidden;
+}
+
+.search-query:hover,
+.search-query input:focus {
+    border: 1px #ff355a solid;
+}
+
+.search-query.active {
+    width: 600px;
+}
+
+.search-query input {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 90px);
+    height: 60px;
+    border: none;
+    outline: none;
+    font-size: 36px;
+    padding: 0 10px;
+    color: #666;
+}
+
+.search-query.active .icon {
+    background: #ff355a;
+}
+
+.icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 4px;
+}
+
+.search-query.active .icon:before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 13px;
+    width: 18px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    border-right: 2px solid #fff;
+    border-radius: 0;
+    transition: 0.5%;
+    transform: rotate(45deg);
+}
+
+.search-query.active .icon:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 13px;
+    width: 18px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    border-right: 2px solid #fff;
+    border-radius: 0;
+    transition: 0.5%;
+    transform: rotate(-45deg);
+}
+
+.icon:before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: 2px solid #262626;
+    border-radius: 50%;
+    transition: 0.5%;
+}
+
+.icon:after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    width: 18px;
+    height: 18px;
+    background: transparent;
+    border-left: 2px solid #262626;
+    border-radius: 0;
+    transform: rotate(-45deg);
+    transition: 0.5%;
+}
+
+/* Sorry message */
+.sorry-message {
+    margin: 0 auto;
+}
+
+/* Shopping Bag */
+.shopping-cart {
+    position: absolute;
+    top: 7%;
+    left: 80%;
+}
+
+.shopping-cart i {
+    font-size: 2em;
+    color: blue;
+}
+
+.badge {
+    background-color: #6394f8;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* Card Bag Inside */
+
+/* Card image  */
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: contain;
+}
+
+/* Card buttons common style */
+.btn.skip,
+.btn.add-to-cart {
+    position: absolute;
+    font-size: 40px;
+    padding: 12px 24px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+/* Card buttons */
+.btn.add-to-cart {
+    top: 8%;
+    left: 85%;
+    color: black;
+}
+
+.btn.add-to-cart:hover {
+    color: green;
+}
+
+.btn.skip {
+    color: black;
+    top: 8%;
+    left: 8%;
+}
+
+.btn.skip:hover {
+    color: red;
+}
+
+/* Spinner */
+#spinner {
+    visibility: hidden;
+    width: 80px;
+    height: 80px;
+
+    border: 2px solid #f3f3f3;
+    border-top: 3px solid #f25a41;
+    border-radius: 100%;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#spinner.show {
+    visibility: visible;
+}
