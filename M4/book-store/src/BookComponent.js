@@ -1,24 +1,11 @@
 import React, { Component } from "react";
 import { Table, Button } from "react-bootstrap";
+import data from "./data/fantasy.json";
+import { MdDeleteForever, MdModeEdit } from "react-icons/md";
 
 export default class BookComponent extends Component {
-    state = {
-        books: []
-    };
-
-    componentDidMount() {
-        fetch("../API/fantasy.json")
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                this.setState({
-                    books: data
-                });
-            });
-    }
-
     render() {
-        let books = this.state.books.map(book => {
+        let books = data.map(book => {
             return (
                 <tr key={book.asin}>
                     <td>{book.asin}</td>
@@ -26,14 +13,19 @@ export default class BookComponent extends Component {
                     <td>{book.category}</td>
                     <td>{book.price}</td>
                     <td>
-                        <img src="{book.img}" alt="{book.title}" height="90" width="90" />>
+                        <img
+                            src={book.img}
+                            alt={book.title}
+                            height="90"
+                            width="90"
+                        />
                     </td>
                     <td>
-                        <Button variant="success" size="sm" className="mr-2">
-                            Edit
+                        <Button variant="warning" size="sm" className="mr-2">
+                            <MdModeEdit />
                         </Button>
                         <Button variant="danger" size="sm">
-                            Delete
+                            <MdDeleteForever />
                         </Button>
                     </td>
                 </tr>
@@ -51,9 +43,7 @@ export default class BookComponent extends Component {
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {books}
-                </tbody>
+                <tbody>{books}</tbody>
             </Table>
         );
     }
