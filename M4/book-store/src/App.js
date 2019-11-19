@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import Navigation from "./Navigation";
-import FooterComponent from "./FooterComponent";
-import BookComponent from "./BookComponent";
-import WelcomeComponent from "./WelcomeComponent";
+import Navigation from "./components/Navigation";
+import FooterComponent from "./components/FooterComponent";
+import BookComponent from "./components/BookComponent";
+import WelcomeComponent from "./components/WelcomeComponent";
 
 class App extends Component {
     render() {

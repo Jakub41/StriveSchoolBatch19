@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Table, Button } from "react-bootstrap";
-import data from "./data/fantasy.json";
+import Fantasy from "../data/fantasy.json";
 import { MdDeleteForever, MdModeEdit } from "react-icons/md";
 
 export default class BookComponent extends Component {
     render() {
-        let books = data.map(book => {
+        let books = Fantasy.map(book => {
             return (
                 <tr key={book.asin}>
                     <td>{book.asin}</td>
