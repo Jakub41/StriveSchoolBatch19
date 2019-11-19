@@ -10,7 +10,7 @@ class App extends Component {
         return (
             <div>
                 <Navigation />
-                <div className="container-fluid">
+                <div>
                     <WelcomeComponent />
                 </div>
                 <div className="container">
