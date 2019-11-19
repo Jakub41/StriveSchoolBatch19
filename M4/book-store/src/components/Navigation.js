@@ -23,7 +23,7 @@ const NavItem = props => {
 class Navigation extends React.Component {
     render() {
         return (
-            <Navbar bg="dark" expand="lg" variant="dark">
+            <Navbar sticky="top" bg="dark" expand="lg" variant="dark">
                 <Navbar.Brand href="/home">
                     <GiBookshelf />
                 </Navbar.Brand>
