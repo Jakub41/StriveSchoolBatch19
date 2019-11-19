@@ -71,3 +71,7 @@ Temporary Items
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+M4/node_modules
+M4/package-lock.json
+M4/book-store/yarn.lock
